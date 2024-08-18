@@ -1,0 +1,899 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Include="..\..\SoMRandomizer\config\DifficultySettings.cs">
+        <Link>config\DifficultySettings.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\config\PropertyFileReader.cs">
+        <Link>config\PropertyFileReader.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\config\settings\AncientCaveSettings.cs">
+        <Link>config\settings\AncientCaveSettings.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\config\settings\BossRushSettings.cs">
+        <Link>config\settings\BossRushSettings.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\config\settings\ChaosSettings.cs">
+        <Link>config\settings\ChaosSettings.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\config\settings\CommonSettings.cs">
+        <Link>config\settings\CommonSettings.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\config\settings\OpenWorldSettings.cs">
+        <Link>config\settings\OpenWorldSettings.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\config\settings\RandoSettings.cs">
+        <Link>config\settings\RandoSettings.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\config\settings\StringValueSettings.cs">
+        <Link>config\settings\StringValueSettings.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\config\settings\VanillaRandoSettings.cs">
+        <Link>config\settings\VanillaRandoSettings.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\logging\DebugLogger.cs">
+        <Link>logging\DebugLogger.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\logging\FileLogger.cs">
+        <Link>logging\FileLogger.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\logging\Logging.cs">
+        <Link>logging\Logging.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\logging\NullWriter.cs">
+        <Link>logging\NullWriter.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\AncientCaveEventMaker.cs">
+        <Link>processing\ancientcave\AncientCaveEventMaker.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\AncientCaveGenerator.cs">
+        <Link>processing\ancientcave\AncientCaveGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\AncientCaveRandomizer.cs">
+        <Link>processing\ancientcave\AncientCaveRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\DemetriMartinQuotes.cs">
+        <Link>processing\ancientcave\DemetriMartinQuotes.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\AncientCaveMapGenerator.cs">
+        <Link>processing\ancientcave\mapgen\AncientCaveMapGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\cave\CaveGenerator.cs">
+        <Link>processing\ancientcave\mapgen\cave\CaveGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\cave\CaveTileEdges.cs">
+        <Link>processing\ancientcave\mapgen\cave\CaveTileEdges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\forest\ForestCaveRooms.cs">
+        <Link>processing\ancientcave\mapgen\forest\ForestCaveRooms.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\forest\ForestConstants.cs">
+        <Link>processing\ancientcave\mapgen\forest\ForestConstants.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\forest\ForestGenerator.cs">
+        <Link>processing\ancientcave\mapgen\forest\ForestGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\forest\ForestMountainLedges.cs">
+        <Link>processing\ancientcave\mapgen\forest\ForestMountainLedges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\forest\ForestTileEdges.cs">
+        <Link>processing\ancientcave\mapgen\forest\ForestTileEdges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\island\IslandGenerator.cs">
+        <Link>processing\ancientcave\mapgen\island\IslandGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\island\IslandHutRooms.cs">
+        <Link>processing\ancientcave\mapgen\island\IslandHutRooms.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\manafortint\ManafortInteriorGenerator.cs">
+        <Link>processing\ancientcave\mapgen\manafortint\ManafortInteriorGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\manafortint\ManafortIntNpcRooms.cs">
+        <Link>processing\ancientcave\mapgen\manafortint\ManafortIntNpcRooms.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\manafortint\rooms\BridgeRoom.cs">
+        <Link>processing\ancientcave\mapgen\manafortint\rooms\BridgeRoom.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\manafortint\rooms\CircleLineRoom.cs">
+        <Link>processing\ancientcave\mapgen\manafortint\rooms\CircleLineRoom.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\manafortint\rooms\CrystalRoom.cs">
+        <Link>processing\ancientcave\mapgen\manafortint\rooms\CrystalRoom.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\manafortint\rooms\DiagonalRoom.cs">
+        <Link>processing\ancientcave\mapgen\manafortint\rooms\DiagonalRoom.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\manafortint\rooms\ManafortRoomMaker.cs">
+        <Link>processing\ancientcave\mapgen\manafortint\rooms\ManafortRoomMaker.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\manafortint\rooms\MultiDiagonalRoom.cs">
+        <Link>processing\ancientcave\mapgen\manafortint\rooms\MultiDiagonalRoom.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\manafortint\rooms\StartEndRoom.cs">
+        <Link>processing\ancientcave\mapgen\manafortint\rooms\StartEndRoom.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\manafortint\rooms\WhipRoom.cs">
+        <Link>processing\ancientcave\mapgen\manafortint\rooms\WhipRoom.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\PaletteSetSource.cs">
+        <Link>processing\ancientcave\mapgen\PaletteSetSource.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\ProcGenMapNode.cs">
+        <Link>processing\ancientcave\mapgen\ProcGenMapNode.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\ReplacementMapSegment.cs">
+        <Link>processing\ancientcave\mapgen\ReplacementMapSegment.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\ResourcePaletteSetSource.cs">
+        <Link>processing\ancientcave\mapgen\ResourcePaletteSetSource.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\ruins\InsideRooms.cs">
+        <Link>processing\ancientcave\mapgen\ruins\InsideRooms.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\ruins\OutsideRooms.cs">
+        <Link>processing\ancientcave\mapgen\ruins\OutsideRooms.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\ruins\RuinsCourtyard.cs">
+        <Link>processing\ancientcave\mapgen\ruins\RuinsCourtyard.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\ruins\RuinsGenerator.cs">
+        <Link>processing\ancientcave\mapgen\ruins\RuinsGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\ruins\RuinsPathGenerator.cs">
+        <Link>processing\ancientcave\mapgen\ruins\RuinsPathGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\TileReplacer.cs">
+        <Link>processing\ancientcave\mapgen\TileReplacer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\mapgen\VanillaPaletteSetSource.cs">
+        <Link>processing\ancientcave\mapgen\VanillaPaletteSetSource.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\ancientcave\MitchHedbergQuotes.cs">
+        <Link>processing\ancientcave\MitchHedbergQuotes.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\bossrush\BossOrderRandomizer.cs">
+        <Link>processing\bossrush\BossOrderRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\bossrush\BossRushEventGenerator.cs">
+        <Link>processing\bossrush\BossRushEventGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\bossrush\BossRushGenerator.cs">
+        <Link>processing\bossrush\BossRushGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\bossrush\BossRushRandomizer.cs">
+        <Link>processing\bossrush\BossRushRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\bossrush\RestMap.cs">
+        <Link>processing\bossrush\RestMap.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\chaos\ChaosBossMap.cs">
+        <Link>processing\chaos\ChaosBossMap.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\chaos\ChaosDoor.cs">
+        <Link>processing\chaos\ChaosDoor.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\chaos\ChaosEventMaker.cs">
+        <Link>processing\chaos\ChaosEventMaker.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\chaos\ChaosGenerationState.cs">
+        <Link>processing\chaos\ChaosGenerationState.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\chaos\ChaosGenerator.cs">
+        <Link>processing\chaos\ChaosGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\chaos\ChaosMapGenerationInfo.cs">
+        <Link>processing\chaos\ChaosMapGenerationInfo.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\chaos\ChaosMapGenerator.cs">
+        <Link>processing\chaos\ChaosMapGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\chaos\ChaosRandomizer.cs">
+        <Link>processing\chaos\ChaosRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\chaos\ChaosVanillaMap.cs">
+        <Link>processing\chaos\ChaosVanillaMap.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\chaos\ChaosVanillaMaps.cs">
+        <Link>processing\chaos\ChaosVanillaMaps.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\BossSwaps.cs">
+        <Link>processing\common\BossSwaps.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\CustomRamOffsets.cs">
+        <Link>processing\common\CustomRamOffsets.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\ElementSwaps.cs">
+        <Link>processing\common\ElementSwaps.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\EnemySwaps.cs">
+        <Link>processing\common\EnemySwaps.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\EventCommandEnum.cs">
+        <Link>processing\common\EventCommandEnum.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\EventFlags.cs">
+        <Link>processing\common\EventFlags.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\GeneratedMapUtil.cs">
+        <Link>processing\common\GeneratedMapUtil.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\InvisClearsSlow.cs">
+        <Link>processing\common\InvisClearsSlow.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\mapgen\CreditsMap.cs">
+        <Link>processing\common\mapgen\CreditsMap.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\mapgen\ManaBeastMap.cs">
+        <Link>processing\common\mapgen\ManaBeastMap.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\OrbSwaps.cs">
+        <Link>processing\common\OrbSwaps.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\RandoContext.cs">
+        <Link>processing\common\RandoContext.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\RomGenerator.cs">
+        <Link>processing\common\RomGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\SomMapCompressor.cs">
+        <Link>processing\common\SomMapCompressor.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\SomVanillaValues.cs">
+        <Link>processing\common\SomVanillaValues.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\Door.cs">
+        <Link>processing\common\structure\Door.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\EventScript.cs">
+        <Link>processing\common\structure\EventScript.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\FullMap.cs">
+        <Link>processing\common\structure\FullMap.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\FullMapMapPieceReference.cs">
+        <Link>processing\common\structure\FullMapMapPieceReference.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\FullMapMapPieces.cs">
+        <Link>processing\common\structure\FullMapMapPieces.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\MapHeader.cs">
+        <Link>processing\common\structure\MapHeader.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\MapObject.cs">
+        <Link>processing\common\structure\MapObject.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\MapPaletteSet.cs">
+        <Link>processing\common\structure\MapPaletteSet.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\SnesColor.cs">
+        <Link>processing\common\structure\SnesColor.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\SnesPalette.cs">
+        <Link>processing\common\structure\SnesPalette.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\SnesTile.cs">
+        <Link>processing\common\structure\SnesTile.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\VanillaStructure.cs">
+        <Link>processing\common\structure\VanillaStructure.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\VanillaBossMaps.cs">
+        <Link>processing\common\VanillaBossMaps.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\VanillaDoorUtil.cs">
+        <Link>processing\common\VanillaDoorUtil.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\VanillaEventUtil.cs">
+        <Link>processing\common\VanillaEventUtil.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\VanillaMapUtil.cs">
+        <Link>processing\common\VanillaMapUtil.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\VanillaPaletteUtil.cs">
+        <Link>processing\common\VanillaPaletteUtil.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\VanillaRomOffsets.cs">
+        <Link>processing\common\VanillaRomOffsets.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\VanillaTilesetUtil.cs">
+        <Link>processing\common\VanillaTilesetUtil.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\ancientcave\AcCaveTilesetChanges.cs">
+        <Link>processing\hacks\ancientcave\AcCaveTilesetChanges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\ancientcave\AcIslandTilesetChanges.cs">
+        <Link>processing\hacks\ancientcave\AcIslandTilesetChanges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\ancientcave\AcManafortTilesetChanges.cs">
+        <Link>processing\hacks\ancientcave\AcManafortTilesetChanges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\bossrush\InstantWeaponLevels.cs">
+        <Link>processing\hacks\bossrush\InstantWeaponLevels.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\bossrush\LimitMode7BossMp.cs">
+        <Link>processing\hacks\bossrush\LimitMode7BossMp.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\bossrush\ManaBeastDamageScaling.cs">
+        <Link>processing\hacks\bossrush\ManaBeastDamageScaling.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\bossrush\MpAbsorbLimiter.cs">
+        <Link>processing\hacks\bossrush\MpAbsorbLimiter.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\bossrush\StartingLevel.cs">
+        <Link>processing\hacks\bossrush\StartingLevel.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\enhancement\ElementalDamage.cs">
+        <Link>processing\hacks\common\enhancement\ElementalDamage.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\enhancement\EnemyTypeDamage.cs">
+        <Link>processing\hacks\common\enhancement\EnemyTypeDamage.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\enhancement\Ff6StyleMiniMap.cs">
+        <Link>processing\hacks\common\enhancement\Ff6StyleMiniMap.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\enhancement\FreeTargetting.cs">
+        <Link>processing\hacks\common\enhancement\FreeTargetting.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\enhancement\MagDefAdjustment.cs">
+        <Link>processing\hacks\common\enhancement\MagDefAdjustment.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\enhancement\NameEntryChanges.cs">
+        <Link>processing\hacks\common\enhancement\NameEntryChanges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\enhancement\NumbersOnScreen.cs">
+        <Link>processing\hacks\common\enhancement\NumbersOnScreen.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\enhancement\Speedup.cs">
+        <Link>processing\hacks\common\enhancement\Speedup.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\enhancement\StatusGlow.cs">
+        <Link>processing\hacks\common\enhancement\StatusGlow.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\enhancement\TitleScreenAddition.cs">
+        <Link>processing\hacks\common\enhancement\TitleScreenAddition.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\enhancement\WeaponRandomizer.cs">
+        <Link>processing\hacks\common\enhancement\WeaponRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\BossDeathFix.cs">
+        <Link>processing\hacks\common\fix\BossDeathFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\BossZPosition.cs">
+        <Link>processing\hacks\common\fix\BossZPosition.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\ConfuseFix.cs">
+        <Link>processing\hacks\common\fix\ConfuseFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\DamageCancelFix.cs">
+        <Link>processing\hacks\common\fix\DamageCancelFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\HighLevelEnemyNameFix.cs">
+        <Link>processing\hacks\common\fix\HighLevelEnemyNameFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\MagicRopeDeathFix.cs">
+        <Link>processing\hacks\common\fix\MagicRopeDeathFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\MechRiderDeathFix.cs">
+        <Link>processing\hacks\common\fix\MechRiderDeathFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\OrbRewardFix.cs">
+        <Link>processing\hacks\common\fix\OrbRewardFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\OverchargeFix.cs">
+        <Link>processing\hacks\common\fix\OverchargeFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\WhipFix.cs">
+        <Link>processing\hacks\common\fix\WhipFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\music\CustomMusic.cs">
+        <Link>processing\hacks\common\music\CustomMusic.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\music\ExternalMusic.cs">
+        <Link>processing\hacks\common\music\ExternalMusic.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\music\ExternalSamples.cs">
+        <Link>processing\hacks\common\music\ExternalSamples.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\music\MusicExpander.cs">
+        <Link>processing\hacks\common\music\MusicExpander.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\music\MuteMusic.cs">
+        <Link>processing\hacks\common\music\MuteMusic.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\music\RandomMusicHack.cs">
+        <Link>processing\hacks\common\music\RandomMusicHack.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\music\SongExpansionInfo.cs">
+        <Link>processing\hacks\common\music\SongExpansionInfo.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\music\VanillaMusicTypesLoader.cs">
+        <Link>processing\hacks\common\music\VanillaMusicTypesLoader.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\AlwaysPoisoned.cs">
+        <Link>processing\hacks\common\other\AlwaysPoisoned.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\AnimatedPaletteSimplification.cs">
+        <Link>processing\hacks\common\other\AnimatedPaletteSimplification.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\DeathEventDoorwayRemoval.cs">
+        <Link>processing\hacks\common\other\DeathEventDoorwayRemoval.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\DisplayEvadesAsZero.cs">
+        <Link>processing\hacks\common\other\DisplayEvadesAsZero.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\EnemyInfiniteMp.cs">
+        <Link>processing\hacks\common\other\EnemyInfiniteMp.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\ExperienceAdjust.cs">
+        <Link>processing\hacks\common\other\ExperienceAdjust.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\FastBosses.cs">
+        <Link>processing\hacks\common\other\FastBosses.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\FasterEnemies.cs">
+        <Link>processing\hacks\common\other\FasterEnemies.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\FasterTopOfScreenDialogue.cs">
+        <Link>processing\hacks\common\other\FasterTopOfScreenDialogue.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\FastTransitions.cs">
+        <Link>processing\hacks\common\other\FastTransitions.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\FirePalaceDoorFix.cs">
+        <Link>processing\hacks\common\other\FirePalaceDoorFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\GigasesNeverSplit.cs">
+        <Link>processing\hacks\common\other\GigasesNeverSplit.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\GoldAdjust.cs">
+        <Link>processing\hacks\common\other\GoldAdjust.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\HexasFix.cs">
+        <Link>processing\hacks\common\other\HexasFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\Mode7EdgesFix.cs">
+        <Link>processing\hacks\common\other\Mode7EdgesFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\NoCollision.cs">
+        <Link>processing\hacks\common\other\NoCollision.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\NoEnergyToAttack.cs">
+        <Link>processing\hacks\common\other\NoEnergyToAttack.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\NoEnergyToRun.cs">
+        <Link>processing\hacks\common\other\NoEnergyToRun.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\NoFootstepSound.cs">
+        <Link>processing\hacks\common\other\NoFootstepSound.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\NoSwordPullAnimation.cs">
+        <Link>processing\hacks\common\other\NoSwordPullAnimation.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\ObscureDamage.cs">
+        <Link>processing\hacks\common\other\ObscureDamage.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\ObscureGoldAmount.cs">
+        <Link>processing\hacks\common\other\ObscureGoldAmount.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\ObscureOwnHp.cs">
+        <Link>processing\hacks\common\other\ObscureOwnHp.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\OneHitKo.cs">
+        <Link>processing\hacks\common\other\OneHitKo.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\PercentagePoison.cs">
+        <Link>processing\hacks\common\other\PercentagePoison.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\RabiteColorRandomizer.cs">
+        <Link>processing\hacks\common\other\RabiteColorRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\SoundEffectsReduction.cs">
+        <Link>processing\hacks\common\other\SoundEffectsReduction.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\StarterGear.cs">
+        <Link>processing\hacks\common\other\StarterGear.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\StartingDoor.cs">
+        <Link>processing\hacks\common\other\StartingDoor.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\StatusLengths.cs">
+        <Link>processing\hacks\common\other\StatusLengths.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\Vineshroom.cs">
+        <Link>processing\hacks\common\other\Vineshroom.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\XmasDrops.cs">
+        <Link>processing\hacks\common\other\XmasDrops.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\procgen\DoorExpansion.cs">
+        <Link>processing\hacks\common\procgen\DoorExpansion.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\procgen\DropChanges.cs">
+        <Link>processing\hacks\common\procgen\DropChanges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\procgen\EnemyBlackMagicPower.cs">
+        <Link>processing\hacks\common\procgen\EnemyBlackMagicPower.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\procgen\EnemyChanges.cs">
+        <Link>processing\hacks\common\procgen\EnemyChanges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\procgen\FlammieDrum.cs">
+        <Link>processing\hacks\common\procgen\FlammieDrum.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\procgen\Layer3Changes.cs">
+        <Link>processing\hacks\common\procgen\Layer3Changes.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\procgen\MagicRope.cs">
+        <Link>processing\hacks\common\procgen\MagicRope.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\procgen\SellAllGear.cs">
+        <Link>processing\hacks\common\procgen\SellAllGear.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\procgen\ShopChanges.cs">
+        <Link>processing\hacks\common\procgen\ShopChanges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\procgen\Statistics.cs">
+        <Link>processing\hacks\common\procgen\Statistics.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\procgen\TimerDialogue.cs">
+        <Link>processing\hacks\common\procgen\TimerDialogue.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\Autosave.cs">
+        <Link>processing\hacks\common\qol\Autosave.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\BeakShieldDisable.cs">
+        <Link>processing\hacks\common\qol\BeakShieldDisable.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\BuyMultipleItems.cs">
+        <Link>processing\hacks\common\qol\BuyMultipleItems.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\CandyHealouts.cs">
+        <Link>processing\hacks\common\qol\CandyHealouts.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\ChestOpeningSpeedup.cs">
+        <Link>processing\hacks\common\qol\ChestOpeningSpeedup.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\CupWishesOnZeroHp.cs">
+        <Link>processing\hacks\common\qol\CupWishesOnZeroHp.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\DamagePercentFix.cs">
+        <Link>processing\hacks\common\qol\DamagePercentFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\DontAutoResetAtFirstMenu.cs">
+        <Link>processing\hacks\common\qol\DontAutoResetAtFirstMenu.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\EnemyPositionAdjustments.cs">
+        <Link>processing\hacks\common\qol\EnemyPositionAdjustments.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\FasterMagicLevels.cs">
+        <Link>processing\hacks\common\qol\FasterMagicLevels.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\FasterWeaponLevels.cs">
+        <Link>processing\hacks\common\qol\FasterWeaponLevels.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\FreeWalking.cs">
+        <Link>processing\hacks\common\qol\FreeWalking.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\HittableVampire.cs">
+        <Link>processing\hacks\common\qol\HittableVampire.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\IceCountryLandableFixes.cs">
+        <Link>processing\hacks\common\qol\IceCountryLandableFixes.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\LevelupMpRestore.cs">
+        <Link>processing\hacks\common\qol\LevelupMpRestore.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\MagicRebalance.cs">
+        <Link>processing\hacks\common\qol\MagicRebalance.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\qol\MaxItemsIncrease.cs">
+        <Link>processing\hacks\common\qol\MaxItemsIncrease.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\util\CharacterPaletteRandomizer.cs">
+        <Link>processing\hacks\common\util\CharacterPaletteRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\util\CustomEventManager.cs">
+        <Link>processing\hacks\common\util\CustomEventManager.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\util\DoorReplacer.cs">
+        <Link>processing\hacks\common\util\DoorReplacer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\util\EventExpander.cs">
+        <Link>processing\hacks\common\util\EventExpander.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\util\FullMapReplacer.cs">
+        <Link>processing\hacks\common\util\FullMapReplacer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\util\InitialValues.cs">
+        <Link>processing\hacks\common\util\InitialValues.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\util\MapPaletteSetReplacer.cs">
+        <Link>processing\hacks\common\util\MapPaletteSetReplacer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\util\MapPieceExpander.cs">
+        <Link>processing\hacks\common\util\MapPieceExpander.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\util\NamesOfThings.cs">
+        <Link>processing\hacks\common\util\NamesOfThings.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\AISwap.cs">
+        <Link>processing\hacks\openworld\AISwap.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\BlackMapPalettes.cs">
+        <Link>processing\hacks\openworld\BlackMapPalettes.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\BossElementRando.cs">
+        <Link>processing\hacks\openworld\BossElementRando.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\CharacterClasses.cs">
+        <Link>processing\hacks\openworld\CharacterClasses.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\CrystalOrbColors.cs">
+        <Link>processing\hacks\openworld\CrystalOrbColors.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\CustomTopOfScreenText.cs">
+        <Link>processing\hacks\openworld\CustomTopOfScreenText.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\DefenseRefactor.cs">
+        <Link>processing\hacks\openworld\DefenseRefactor.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\DropOnlyConsumables.cs">
+        <Link>processing\hacks\openworld\DropOnlyConsumables.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\EnemiesAtYourLevel.cs">
+        <Link>processing\hacks\openworld\EnemiesAtYourLevel.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\EnemyRandomizer.cs">
+        <Link>processing\hacks\openworld\EnemyRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\FastWhipPosts.cs">
+        <Link>processing\hacks\openworld\FastWhipPosts.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\InvincibleRabite.cs">
+        <Link>processing\hacks\openworld\InvincibleRabite.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\LimeSlimeFlavors.cs">
+        <Link>processing\hacks\openworld\LimeSlimeFlavors.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\MagicRopeRefactor.cs">
+        <Link>processing\hacks\openworld\MagicRopeRefactor.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\ManaMagicFix.cs">
+        <Link>processing\hacks\openworld\ManaMagicFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\MapPaletteRandomizations.cs">
+        <Link>processing\hacks\openworld\MapPaletteRandomizations.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\MenuIconsIfArmorImprovement.cs">
+        <Link>processing\hacks\openworld\MenuIconsIfArmorImprovement.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\MinMaxLevel.cs">
+        <Link>processing\hacks\openworld\MinMaxLevel.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\Nesoberi.cs">
+        <Link>processing\hacks\openworld\Nesoberi.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\NoEnemies.cs">
+        <Link>processing\hacks\openworld\NoEnemies.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\NoNekoOverflow.cs">
+        <Link>processing\hacks\openworld\NoNekoOverflow.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\OpenWorldWinterTheme.cs">
+        <Link>processing\hacks\openworld\OpenWorldWinterTheme.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\Plando.cs">
+        <Link>processing\hacks\openworld\Plando.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\RemoveItemEventCommand.cs">
+        <Link>processing\hacks\openworld\RemoveItemEventCommand.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\ShopRandomizer.cs">
+        <Link>processing\hacks\openworld\ShopRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\StartingCharacterRandomizer.cs">
+        <Link>processing\hacks\openworld\StartingCharacterRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\SummonDespawnFix.cs">
+        <Link>processing\hacks\openworld\SummonDespawnFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\TitleMenuSeedHashDisplay.cs">
+        <Link>processing\hacks\openworld\TitleMenuSeedHashDisplay.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\WattsWeaponLevelFix.cs">
+        <Link>processing\hacks\openworld\WattsWeaponLevelFix.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\XmasMapPalettes.cs">
+        <Link>processing\hacks\openworld\XmasMapPalettes.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\openworld\XmasRandoData.cs">
+        <Link>processing\hacks\openworld\XmasRandoData.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\vanillarando\EnemyScaling.cs">
+        <Link>processing\hacks\vanillarando\EnemyScaling.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\vanillarando\FallTheme.cs">
+        <Link>processing\hacks\vanillarando\FallTheme.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\hacks\vanillarando\WinterTheme.cs">
+        <Link>processing\hacks\vanillarando\WinterTheme.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\CharacterJoinChanges.cs">
+        <Link>processing\openworld\CharacterJoinChanges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\FlammieLogicIntroEvent.cs">
+        <Link>processing\openworld\events\FlammieLogicIntroEvent.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\GiftDeliveryIntroEvent.cs">
+        <Link>processing\openworld\events\GiftDeliveryIntroEvent.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\HintEvents.cs">
+        <Link>processing\openworld\events\HintEvents.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\InitialEventFlagStates.cs">
+        <Link>processing\openworld\events\InitialEventFlagStates.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\IntroEvent.cs">
+        <Link>processing\openworld\events\IntroEvent.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\MiscDialogue.cs">
+        <Link>processing\openworld\events\MiscDialogue.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\NekoEvents.cs">
+        <Link>processing\openworld\events\NekoEvents.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\NewGameEvent.cs">
+        <Link>processing\openworld\events\NewGameEvent.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\OpenWorldEvents.cs">
+        <Link>processing\openworld\events\OpenWorldEvents.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\OpenWorldSupportingEvents.cs">
+        <Link>processing\openworld\events\OpenWorldSupportingEvents.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\OpenWorldSupportingMapChanges.cs">
+        <Link>processing\openworld\events\OpenWorldSupportingMapChanges.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\PokedexEvent.cs">
+        <Link>processing\openworld\events\PokedexEvent.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\PrizeEvents.cs">
+        <Link>processing\openworld\events\PrizeEvents.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\ReindeerIntroEvent.cs">
+        <Link>processing\openworld\events\ReindeerIntroEvent.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\SwordGrabEvent.cs">
+        <Link>processing\openworld\events\SwordGrabEvent.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\events\WaterfallIntroEvent.cs">
+        <Link>processing\openworld\events\WaterfallIntroEvent.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\OpenWorldCharacterSelection.cs">
+        <Link>processing\openworld\OpenWorldCharacterSelection.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\OpenWorldClassSelection.cs">
+        <Link>processing\openworld\OpenWorldClassSelection.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\OpenWorldDifficultyProcessor.cs">
+        <Link>processing\openworld\OpenWorldDifficultyProcessor.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\OpenWorldGenerator.cs">
+        <Link>processing\openworld\OpenWorldGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\OpenWorldGoalProcessor.cs">
+        <Link>processing\openworld\OpenWorldGoalProcessor.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\OpenWorldMtrSeedNumSelection.cs">
+        <Link>processing\openworld\OpenWorldMtrSeedNumSelection.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\OpenWorldSillyEnemyNamePicker.cs">
+        <Link>processing\openworld\OpenWorldSillyEnemyNamePicker.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\OpenWorldXmasHacks.cs">
+        <Link>processing\openworld\OpenWorldXmasHacks.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\PlandoProperties.cs">
+        <Link>processing\openworld\PlandoProperties.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\PlandoUtils.cs">
+        <Link>processing\openworld\PlandoUtils.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\GiftModeProcessing.cs">
+        <Link>processing\openworld\randomization\GiftModeProcessing.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\OpenWorldHints.cs">
+        <Link>processing\openworld\randomization\OpenWorldHints.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\OpenWorldLocationPrizeMatcher.cs">
+        <Link>processing\openworld\randomization\OpenWorldLocationPrizeMatcher.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\OpenWorldLocations.cs">
+        <Link>processing\openworld\randomization\OpenWorldLocations.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\OpenWorldPrizes.cs">
+        <Link>processing\openworld\randomization\OpenWorldPrizes.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\OpenWorldRandomizer.cs">
+        <Link>processing\openworld\randomization\OpenWorldRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\OpenWorldResultInjector.cs">
+        <Link>processing\openworld\randomization\OpenWorldResultInjector.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\OpenWorldSimulator.cs">
+        <Link>processing\openworld\randomization\OpenWorldSimulator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\OpenWorldSpoilers.cs">
+        <Link>processing\openworld\randomization\OpenWorldSpoilers.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\PrizeItem.cs">
+        <Link>processing\openworld\randomization\PrizeItem.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\PrizeLocation.cs">
+        <Link>processing\openworld\randomization\PrizeLocation.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\openworld\randomization\StartingWeaponRandomizer.cs">
+        <Link>processing\openworld\randomization\StartingWeaponRandomizer.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\RandoProcessor.cs">
+        <Link>processing\RandoProcessor.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\vanillarando\FasterDialogueEvents.cs">
+        <Link>processing\vanillarando\FasterDialogueEvents.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\vanillarando\VanillaRandoGenerator.cs">
+        <Link>processing\vanillarando\VanillaRandoGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\CmdArgParser.cs">
+        <Link>util\CmdArgParser.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\CodeGenerationUtils.cs">
+        <Link>util\CodeGenerationUtils.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\ColorUtil.cs">
+        <Link>util\ColorUtil.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\DamageCalculations.cs">
+        <Link>util\DamageCalculations.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\DataUtil.cs">
+        <Link>util\DataUtil.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\ErrorUtil.cs">
+        <Link>util\ErrorUtil.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\PerlinNoise.cs">
+        <Link>util\PerlinNoise.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\rng\DotNet110Random.cs">
+        <Link>util\rng\DotNet110Random.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\rng\HashcodeUtil.cs">
+        <Link>util\rng\HashcodeUtil.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\SomLz77.cs">
+        <Link>util\SomLz77.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\UpdateCheck.cs">
+        <Link>util\UpdateCheck.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\XmlWrapperUtil.cs">
+        <Link>util\XmlWrapperUtil.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\XyPos.cs">
+        <Link>util\XyPos.cs</Link>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Drawing.Common" Version="9.0.0-preview.7.24405.4" />
+    </ItemGroup>
+
+</Project>
