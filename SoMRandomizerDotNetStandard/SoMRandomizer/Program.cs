@@ -10,8 +10,6 @@ namespace MyApp
     {
         static void Main(string[] cmdLine)
         {
-            Console.WriteLine("Hello World!");
-            
             // process commandline args for open world.  require all of these:
             // srcRom=""
             // dstRom=""
