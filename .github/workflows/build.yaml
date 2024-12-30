@@ -27,3 +27,30 @@ jobs:
           if-no-files-found: error
           compression-level: 9
           retention-days: 7
+
+  build-cli:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+        arch:
+          - x64
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Publish
+        run: |
+          cd SoMRandomizerDotNetStandard/SoMRandomizerCLI
+          dotnet publish -a ${{ matrix.arch }}
+      - name: Store
+        uses: actions/upload-artifact@v4
+        with:
+          name: SecretOfManaRandomizerCLI-${{ runner.os }}-${{ matrix.arch }}
+          path: SoMRandomizerDotNetStandard/SoMRandomizerCLI/bin/Release/*/*/native/*
+          if-no-files-found: error
+          compression-level: 9
+          retention-days: 7
