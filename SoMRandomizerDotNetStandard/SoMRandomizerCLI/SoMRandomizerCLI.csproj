@@ -888,9 +888,6 @@
       <Compile Include="..\..\SoMRandomizer\util\SomLz77.cs">
         <Link>util\SomLz77.cs</Link>
       </Compile>
-      <Compile Include="..\..\SoMRandomizer\util\UpdateCheck.cs">
-        <Link>util\UpdateCheck.cs</Link>
-      </Compile>
       <Compile Include="..\..\SoMRandomizer\util\XmlWrapperUtil.cs">
         <Link>util\XmlWrapperUtil.cs</Link>
       </Compile>
