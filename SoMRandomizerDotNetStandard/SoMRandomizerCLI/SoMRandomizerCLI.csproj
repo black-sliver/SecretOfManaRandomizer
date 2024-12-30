@@ -3,11 +3,12 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <!--<ImplicitUsings>enable</ImplicitUsings>-->
+        <!--<Nullable>enable</Nullable>-->
         <AssemblyName>SoMRandomizerCLI</AssemblyName>
         <RootNamespace>SoMRandomizer</RootNamespace>
         <PublishAot>true</PublishAot>
+        <LangVersion>7.3</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>

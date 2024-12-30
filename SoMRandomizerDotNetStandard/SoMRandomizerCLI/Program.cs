@@ -3,6 +3,7 @@ using SoMRandomizer.config.settings;
 using SoMRandomizer.processing.common;
 using SoMRandomizer.processing.openworld;
 using SoMRandomizer.util;
+using System.Collections.Generic;
 
 namespace SoMRandomizer
 {
