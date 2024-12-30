@@ -880,6 +880,12 @@
       <Compile Include="..\..\SoMRandomizer\util\ErrorUtil.cs">
         <Link>util\ErrorUtil.cs</Link>
       </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\img\Bitmap.cs">
+        <Link>util\img\Bitmap.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\util\img\Color.cs">
+        <Link>util\img\Color.cs</Link>
+      </Compile>
       <Compile Include="..\..\SoMRandomizer\util\PerlinNoise.cs">
         <Link>util\PerlinNoise.cs</Link>
       </Compile>
@@ -994,209 +1000,209 @@
       <EmbeddedResource Include="..\..\SoMRandomizer\Resources\mapPalettes\bossrush\bossRushRestMapPal.bin">
         <Link>Resources\mapPalettes\bossrush\bossRushRestMapPal.bin</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_ai.png">
-        <Link>Resources\nesoberi\nesoberi_ai.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_ai.bmp">
+        <Link>Resources\nesoberi\nesoberi_ai.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_ayumu.png">
-        <Link>Resources\nesoberi\nesoberi_ayumu.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_ayumu.bmp">
+        <Link>Resources\nesoberi\nesoberi_ayumu.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_chika.png">
-        <Link>Resources\nesoberi\nesoberi_chika.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_chika.bmp">
+        <Link>Resources\nesoberi\nesoberi_chika.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_chika_wink.png">
-        <Link>Resources\nesoberi\nesoberi_chika_wink.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_chika_wink.bmp">
+        <Link>Resources\nesoberi\nesoberi_chika_wink.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_chisato.png">
-        <Link>Resources\nesoberi\nesoberi_chisato.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_chisato.bmp">
+        <Link>Resources\nesoberi\nesoberi_chisato.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_dia.png">
-        <Link>Resources\nesoberi\nesoberi_dia.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_dia.bmp">
+        <Link>Resources\nesoberi\nesoberi_dia.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_dia_wink.png">
-        <Link>Resources\nesoberi\nesoberi_dia_wink.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_dia_wink.bmp">
+        <Link>Resources\nesoberi\nesoberi_dia_wink.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_eli.png">
-        <Link>Resources\nesoberi\nesoberi_eli.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_eli.bmp">
+        <Link>Resources\nesoberi\nesoberi_eli.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_emma.png">
-        <Link>Resources\nesoberi\nesoberi_emma.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_emma.bmp">
+        <Link>Resources\nesoberi\nesoberi_emma.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_hanamaru.png">
-        <Link>Resources\nesoberi\nesoberi_hanamaru.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_hanamaru.bmp">
+        <Link>Resources\nesoberi\nesoberi_hanamaru.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_hanamaru_wink.png">
-        <Link>Resources\nesoberi\nesoberi_hanamaru_wink.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_hanamaru_wink.bmp">
+        <Link>Resources\nesoberi\nesoberi_hanamaru_wink.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_hanayo.png">
-        <Link>Resources\nesoberi\nesoberi_hanayo.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_hanayo.bmp">
+        <Link>Resources\nesoberi\nesoberi_hanayo.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_honk.png">
-        <Link>Resources\nesoberi\nesoberi_honk.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_honk.bmp">
+        <Link>Resources\nesoberi\nesoberi_honk.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_honk_sleep.png">
-        <Link>Resources\nesoberi\nesoberi_honk_sleep.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_honk_sleep.bmp">
+        <Link>Resources\nesoberi\nesoberi_honk_sleep.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kaho.png">
-        <Link>Resources\nesoberi\nesoberi_kaho.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kaho.bmp">
+        <Link>Resources\nesoberi\nesoberi_kaho.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kanan.png">
-        <Link>Resources\nesoberi\nesoberi_kanan.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kanan.bmp">
+        <Link>Resources\nesoberi\nesoberi_kanan.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kanan_wink.png">
-        <Link>Resources\nesoberi\nesoberi_kanan_wink.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kanan_wink.bmp">
+        <Link>Resources\nesoberi\nesoberi_kanan_wink.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kanata.png">
-        <Link>Resources\nesoberi\nesoberi_kanata.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kanata.bmp">
+        <Link>Resources\nesoberi\nesoberi_kanata.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kanon.png">
-        <Link>Resources\nesoberi\nesoberi_kanon.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kanon.bmp">
+        <Link>Resources\nesoberi\nesoberi_kanon.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kanon_happy.png">
-        <Link>Resources\nesoberi\nesoberi_kanon_happy.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kanon_happy.bmp">
+        <Link>Resources\nesoberi\nesoberi_kanon_happy.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_karin.png">
-        <Link>Resources\nesoberi\nesoberi_karin.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_karin.bmp">
+        <Link>Resources\nesoberi\nesoberi_karin.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_karin_summer.png">
-        <Link>Resources\nesoberi\nesoberi_karin_summer.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_karin_summer.bmp">
+        <Link>Resources\nesoberi\nesoberi_karin_summer.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kasumi.png">
-        <Link>Resources\nesoberi\nesoberi_kasumi.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kasumi.bmp">
+        <Link>Resources\nesoberi\nesoberi_kasumi.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_keke.png">
-        <Link>Resources\nesoberi\nesoberi_keke.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_keke.bmp">
+        <Link>Resources\nesoberi\nesoberi_keke.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kinako.png">
-        <Link>Resources\nesoberi\nesoberi_kinako.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kinako.bmp">
+        <Link>Resources\nesoberi\nesoberi_kinako.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kotori.png">
-        <Link>Resources\nesoberi\nesoberi_kotori.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kotori.bmp">
+        <Link>Resources\nesoberi\nesoberi_kotori.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kozue.png">
-        <Link>Resources\nesoberi\nesoberi_kozue.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_kozue.bmp">
+        <Link>Resources\nesoberi\nesoberi_kozue.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_lanzhu_queendom.png">
-        <Link>Resources\nesoberi\nesoberi_lanzhu_queendom.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_lanzhu_queendom.bmp">
+        <Link>Resources\nesoberi\nesoberi_lanzhu_queendom.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_leah.png">
-        <Link>Resources\nesoberi\nesoberi_leah.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_leah.bmp">
+        <Link>Resources\nesoberi\nesoberi_leah.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_maki.png">
-        <Link>Resources\nesoberi\nesoberi_maki.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_maki.bmp">
+        <Link>Resources\nesoberi\nesoberi_maki.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_margarete.png">
-        <Link>Resources\nesoberi\nesoberi_margarete.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_margarete.bmp">
+        <Link>Resources\nesoberi\nesoberi_margarete.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_mari.png">
-        <Link>Resources\nesoberi\nesoberi_mari.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_mari.bmp">
+        <Link>Resources\nesoberi\nesoberi_mari.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_mari_wink.png">
-        <Link>Resources\nesoberi\nesoberi_mari_wink.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_mari_wink.bmp">
+        <Link>Resources\nesoberi\nesoberi_mari_wink.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_megumi.png">
-        <Link>Resources\nesoberi\nesoberi_megumi.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_megumi.bmp">
+        <Link>Resources\nesoberi\nesoberi_megumi.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_mei.png">
-        <Link>Resources\nesoberi\nesoberi_mei.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_mei.bmp">
+        <Link>Resources\nesoberi\nesoberi_mei.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_mia.png">
-        <Link>Resources\nesoberi\nesoberi_mia.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_mia.bmp">
+        <Link>Resources\nesoberi\nesoberi_mia.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_natsumi.png">
-        <Link>Resources\nesoberi\nesoberi_natsumi.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_natsumi.bmp">
+        <Link>Resources\nesoberi\nesoberi_natsumi.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_nico.png">
-        <Link>Resources\nesoberi\nesoberi_nico.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_nico.bmp">
+        <Link>Resources\nesoberi\nesoberi_nico.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_nozomi.png">
-        <Link>Resources\nesoberi\nesoberi_nozomi.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_nozomi.bmp">
+        <Link>Resources\nesoberi\nesoberi_nozomi.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_ren.png">
-        <Link>Resources\nesoberi\nesoberi_ren.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_ren.bmp">
+        <Link>Resources\nesoberi\nesoberi_ren.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_riko.png">
-        <Link>Resources\nesoberi\nesoberi_riko.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_riko.bmp">
+        <Link>Resources\nesoberi\nesoberi_riko.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_riko_wink.png">
-        <Link>Resources\nesoberi\nesoberi_riko_wink.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_riko_wink.bmp">
+        <Link>Resources\nesoberi\nesoberi_riko_wink.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rin.png">
-        <Link>Resources\nesoberi\nesoberi_rin.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rin.bmp">
+        <Link>Resources\nesoberi\nesoberi_rin.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rina.png">
-        <Link>Resources\nesoberi\nesoberi_rina.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rina.bmp">
+        <Link>Resources\nesoberi\nesoberi_rina.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rina_noboard.png">
-        <Link>Resources\nesoberi\nesoberi_rina_noboard.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rina_noboard.bmp">
+        <Link>Resources\nesoberi\nesoberi_rina_noboard.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rina_summer.png">
-        <Link>Resources\nesoberi\nesoberi_rina_summer.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rina_summer.bmp">
+        <Link>Resources\nesoberi\nesoberi_rina_summer.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rina_summer_noboard.png">
-        <Link>Resources\nesoberi\nesoberi_rina_summer_noboard.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rina_summer_noboard.bmp">
+        <Link>Resources\nesoberi\nesoberi_rina_summer_noboard.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_ruby.png">
-        <Link>Resources\nesoberi\nesoberi_ruby.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_ruby.bmp">
+        <Link>Resources\nesoberi\nesoberi_ruby.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_ruby_wink.png">
-        <Link>Resources\nesoberi\nesoberi_ruby_wink.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_ruby_wink.bmp">
+        <Link>Resources\nesoberi\nesoberi_ruby_wink.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rurino.png">
-        <Link>Resources\nesoberi\nesoberi_rurino.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_rurino.bmp">
+        <Link>Resources\nesoberi\nesoberi_rurino.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_sarah.png">
-        <Link>Resources\nesoberi\nesoberi_sarah.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_sarah.bmp">
+        <Link>Resources\nesoberi\nesoberi_sarah.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_sayaka.png">
-        <Link>Resources\nesoberi\nesoberi_sayaka.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_sayaka.bmp">
+        <Link>Resources\nesoberi\nesoberi_sayaka.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_setsuna.png">
-        <Link>Resources\nesoberi\nesoberi_setsuna.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_setsuna.bmp">
+        <Link>Resources\nesoberi\nesoberi_setsuna.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_setsuna_summer.png">
-        <Link>Resources\nesoberi\nesoberi_setsuna_summer.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_setsuna_summer.bmp">
+        <Link>Resources\nesoberi\nesoberi_setsuna_summer.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_shiki.png">
-        <Link>Resources\nesoberi\nesoberi_shiki.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_shiki.bmp">
+        <Link>Resources\nesoberi\nesoberi_shiki.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_shioriko.png">
-        <Link>Resources\nesoberi\nesoberi_shioriko.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_shioriko.bmp">
+        <Link>Resources\nesoberi\nesoberi_shioriko.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_shizuku.png">
-        <Link>Resources\nesoberi\nesoberi_shizuku.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_shizuku.bmp">
+        <Link>Resources\nesoberi\nesoberi_shizuku.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_sumire.png">
-        <Link>Resources\nesoberi\nesoberi_sumire.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_sumire.bmp">
+        <Link>Resources\nesoberi\nesoberi_sumire.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_tomari.png">
-        <Link>Resources\nesoberi\nesoberi_tomari.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_tomari.bmp">
+        <Link>Resources\nesoberi\nesoberi_tomari.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_tsuzuri.png">
-        <Link>Resources\nesoberi\nesoberi_tsuzuri.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_tsuzuri.bmp">
+        <Link>Resources\nesoberi\nesoberi_tsuzuri.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_umi.png">
-        <Link>Resources\nesoberi\nesoberi_umi.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_umi.bmp">
+        <Link>Resources\nesoberi\nesoberi_umi.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_yohane.png">
-        <Link>Resources\nesoberi\nesoberi_yohane.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_yohane.bmp">
+        <Link>Resources\nesoberi\nesoberi_yohane.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_yohane_wink.png">
-        <Link>Resources\nesoberi\nesoberi_yohane_wink.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_yohane_wink.bmp">
+        <Link>Resources\nesoberi\nesoberi_yohane_wink.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_you.png">
-        <Link>Resources\nesoberi\nesoberi_you.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_you.bmp">
+        <Link>Resources\nesoberi\nesoberi_you.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_you_training.png">
-        <Link>Resources\nesoberi\nesoberi_you_training.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_you_training.bmp">
+        <Link>Resources\nesoberi\nesoberi_you_training.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_you_wink.png">
-        <Link>Resources\nesoberi\nesoberi_you_wink.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_you_wink.bmp">
+        <Link>Resources\nesoberi\nesoberi_you_wink.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_yu.png">
-        <Link>Resources\nesoberi\nesoberi_yu.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\nesoberi_yu.bmp">
+        <Link>Resources\nesoberi\nesoberi_yu.bmp</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\snow_neso.png">
-        <Link>Resources\nesoberi\snow_neso.png</Link>
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\snow_neso.bmp">
+        <Link>Resources\nesoberi\snow_neso.bmp</Link>
       </EmbeddedResource>
       <EmbeddedResource Include="..\..\SoMRandomizer\Resources\tonpole.ico">
         <Link>Resources\tonpole.ico</Link>
