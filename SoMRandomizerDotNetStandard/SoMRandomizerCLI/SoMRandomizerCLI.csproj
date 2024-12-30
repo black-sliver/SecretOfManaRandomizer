@@ -897,21 +897,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\backdrop_castle.png">
-        <Link>Resources\backdrop_castle.png</Link>
-      </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\backdrop_cave.png">
-        <Link>Resources\backdrop_cave.png</Link>
-      </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\backdrop_forest.png">
-        <Link>Resources\backdrop_forest.png</Link>
-      </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\backdrop_ruins.png">
-        <Link>Resources\backdrop_ruins.png</Link>
-      </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\copybutton.png">
-        <Link>Resources\copybutton.png</Link>
-      </EmbeddedResource>
       <EmbeddedResource Include="..\..\SoMRandomizer\Resources\customMaps\acManafortBossArenaL1.bin">
         <Link>Resources\customMaps\acManafortBossArenaL1.bin</Link>
       </EmbeddedResource>
@@ -1209,20 +1194,8 @@
       <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\snow_neso.png">
         <Link>Resources\nesoberi\snow_neso.png</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\pastebutton.png">
-        <Link>Resources\pastebutton.png</Link>
-      </EmbeddedResource>
       <EmbeddedResource Include="..\..\SoMRandomizer\Resources\pokedata3.xml">
         <Link>Resources\pokedata3.xml</Link>
-      </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\sprite_boy.png">
-        <Link>Resources\sprite_boy.png</Link>
-      </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\sprite_girl.png">
-        <Link>Resources\sprite_girl.png</Link>
-      </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\sprite_sprite.png">
-        <Link>Resources\sprite_sprite.png</Link>
       </EmbeddedResource>
       <EmbeddedResource Include="..\..\SoMRandomizer\Resources\tonpole.ico">
         <Link>Resources\tonpole.ico</Link>
