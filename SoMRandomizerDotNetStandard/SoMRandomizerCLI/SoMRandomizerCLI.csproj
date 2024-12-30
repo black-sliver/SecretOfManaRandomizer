@@ -11,6 +11,10 @@
         <LangVersion>7.3</LangVersion>
     </PropertyGroup>
 
+    <PropertyGroup>
+      <WithPokedex>true</WithPokedex>
+    </PropertyGroup>
+
     <ItemGroup>
       <Compile Include="..\..\SoMRandomizer\config\DifficultySettings.cs">
         <Link>config\DifficultySettings.cs</Link>
@@ -1194,14 +1198,17 @@
       <EmbeddedResource Include="..\..\SoMRandomizer\Resources\nesoberi\snow_neso.png">
         <Link>Resources\nesoberi\snow_neso.png</Link>
       </EmbeddedResource>
-      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\pokedata3.xml">
-        <Link>Resources\pokedata3.xml</Link>
-      </EmbeddedResource>
       <EmbeddedResource Include="..\..\SoMRandomizer\Resources\tonpole.ico">
         <Link>Resources\tonpole.ico</Link>
       </EmbeddedResource>
       <EmbeddedResource Include="..\..\SoMRandomizer\Resources\vineshroom_tiles.bin">
         <Link>Resources\vineshroom_tiles.bin</Link>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup Condition="$(WithPokedex)">
+      <EmbeddedResource Include="..\..\SoMRandomizer\Resources\pokedata3.xml">
+        <Link>Resources\pokedata3.xml</Link>
       </EmbeddedResource>
     </ItemGroup>
 
