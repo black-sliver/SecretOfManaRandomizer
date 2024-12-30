@@ -4,7 +4,7 @@ using SoMRandomizer.processing.common;
 using SoMRandomizer.processing.openworld;
 using SoMRandomizer.util;
 
-namespace MyApp
+namespace SoMRandomizer
 {
     internal class Program
     {
