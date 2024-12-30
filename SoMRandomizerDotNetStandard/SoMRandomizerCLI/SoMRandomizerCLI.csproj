@@ -236,9 +236,6 @@
       <Compile Include="..\..\SoMRandomizer\processing\common\mapgen\ManaBeastMap.cs">
         <Link>processing\common\mapgen\ManaBeastMap.cs</Link>
       </Compile>
-      <Compile Include="..\..\SoMRandomizer\processing\common\OrbSwaps.cs">
-        <Link>processing\common\OrbSwaps.cs</Link>
-      </Compile>
       <Compile Include="..\..\SoMRandomizer\processing\common\RandoContext.cs">
         <Link>processing\common\RandoContext.cs</Link>
       </Compile>
@@ -277,6 +274,9 @@
       </Compile>
       <Compile Include="..\..\SoMRandomizer\processing\common\structure\SnesColor.cs">
         <Link>processing\common\structure\SnesColor.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing\common\structure\Tileset16.cs">
+        <Link>processing\common\structure\Tileset16.cs</Link>
       </Compile>
       <Compile Include="..\..\SoMRandomizer\processing\common\structure\SnesPalette.cs">
         <Link>processing\common\structure\SnesPalette.cs</Link>
@@ -386,9 +386,6 @@
       <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\MechRiderDeathFix.cs">
         <Link>processing\hacks\common\fix\MechRiderDeathFix.cs</Link>
       </Compile>
-      <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\OrbRewardFix.cs">
-        <Link>processing\hacks\common\fix\OrbRewardFix.cs</Link>
-      </Compile>
       <Compile Include="..\..\SoMRandomizer\processing\hacks\common\fix\OverchargeFix.cs">
         <Link>processing\hacks\common\fix\OverchargeFix.cs</Link>
       </Compile>
@@ -487,6 +484,12 @@
       </Compile>
       <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\ObscureOwnHp.cs">
         <Link>processing\hacks\common\other\ObscureOwnHp.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing/hacks/common/other/OrbRewardEventGenerator.cs">
+        <Link>processing\common\other\OrbRewardEventGenerator.cs</Link>
+      </Compile>
+      <Compile Include="..\..\SoMRandomizer\processing/hacks/common/other/PlayerAiDefaultChanges.cs">
+        <Link>processing\common\other\PlayerAiDefaultChanges.cs</Link>
       </Compile>
       <Compile Include="..\..\SoMRandomizer\processing\hacks\common\other\OneHitKo.cs">
         <Link>processing\hacks\common\other\OneHitKo.cs</Link>
