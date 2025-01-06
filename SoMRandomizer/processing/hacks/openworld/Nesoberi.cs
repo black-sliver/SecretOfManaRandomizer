@@ -271,9 +271,9 @@ namespace SoMRandomizer.processing.hacks.openworld
             Logging.log("Nesoberi: " + nesoInfo.characterName + " (" + outfitName + "). Headpats are encouraged and greatly appreciated.", "spoiler");
             byte[] pngData = DataUtil.readResource("SoMRandomizer.Resources.nesoberi." + resourceName);
 
-            //Bitmap b = new Bitmap(new MemoryStream(pngData));
+            Bitmap b = new Bitmap(new MemoryStream(pngData));
             // presumes 0,0 is the bg color; should be true of all these
-            Color bgColor = Color.Black;//b.GetPixel(0, 0);
+            Color bgColor = b.GetPixel(0, 0);
             int bgColorInt = getColorInt(bgColor);
 
             // generate palette and 8-bit image by searching for colors in the loaded png; presumes 15 or less unique colors used
@@ -283,7 +283,7 @@ namespace SoMRandomizer.processing.hacks.openworld
             {
                 for (int x = 0; x < 16; x++)
                 {
-                    Color c = Color.Black;//b.GetPixel(x, y);
+                    Color c = b.GetPixel(x, y);
                     int cInt = getColorInt(c);
                     if (!palette.Contains(cInt))
                     {
@@ -587,14 +587,14 @@ namespace SoMRandomizer.processing.hacks.openworld
 
             byte[] snowNesoPngData = DataUtil.readResource("SoMRandomizer.Resources.nesoberi.snow_neso.png");
 
-            //Bitmap snowNesoBitmap = new Bitmap(new MemoryStream(snowNesoPngData));
+            Bitmap snowNesoBitmap = new Bitmap(new MemoryStream(snowNesoPngData));
             // 8-bit image by using the mapped colors above
             List<byte> snowNesoEightBitImage = new List<byte>();
             for (int y = 0; y < 24; y++)
             {
                 for (int x = 0; x < 16; x++)
                 {
-                    Color c = Color.FromArgb(26, 187, 109); //snowNesoBitmap.GetPixel(x, y);
+                    Color c = snowNesoBitmap.GetPixel(x, y);
                     snowNesoEightBitImage.Add(snowNesoPaletteIndexes[getColorInt(c)]);
                 }
             }
