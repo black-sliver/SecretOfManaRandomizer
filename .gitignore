@@ -1,5 +1,14 @@
+# user files
 .idea
-SoMRandomizer/bin
-SoMRandomizer/obj
-SoMRandomizer.sln.DotSettings.user
+*.DotSettings.user
 packages/
+
+# build output
+SoMRandomizer/bin/
+SoMRandomizer/obj/
+
+SoMRandomizerDotNetStandard/*/bin/
+SoMRandomizerDotNetStandard/*/obj/
+
+# run output files
+log_*.txt
