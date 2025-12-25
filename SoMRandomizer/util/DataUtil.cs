@@ -42,9 +42,9 @@ namespace SoMRandomizer.util
 
         public static byte[] readResource(string resourcePath)
         {
-            // resource path should be SoMRandomizer.Resources.(...)
+            // resource path should be SoMRandomizer.gui.Resources.(...)
             Assembly assemb = Assembly.GetExecutingAssembly();
-            using (Stream stream = assemb.GetManifestResourceStream(resourcePath))
+            using (Stream stream = assemb.GetManifestResourceStream($"{assemb.GetName().Name}.Resources.{resourcePath}"))
             {
                 byte[] resourceData = new byte[stream.Length];
                 stream.Read(resourceData, 0, (int)stream.Length);

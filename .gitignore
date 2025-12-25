@@ -1,5 +1,15 @@
+# user files
 .idea
-SoMRandomizer/bin
-SoMRandomizer/obj
-SoMRandomizer.sln.DotSettings.user
+*.DotSettings.user
 packages/
+
+# build output
+bin/
+obj/
+
+# run output files
+log_*.txt
+
+# user config in AOT projects
+SoMRandomizer.api/*.csproj.user
+SoMRandomizer.cli/*.csproj.user

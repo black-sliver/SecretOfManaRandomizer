@@ -237,7 +237,7 @@ namespace SoMRandomizer.processing.hacks.openworld
                 }
             }
 
-            byte[] giftBoxGraphics = DataUtil.readResource("SoMRandomizer.Resources.giftbox_tiles.bin");
+            byte[] giftBoxGraphics = DataUtil.readResource("giftbox_tiles.bin");
             for (int i = 0; i < giftBoxGraphics.Length; i++)
             {
                 outRom[i + 0x186540] = giftBoxGraphics[i];

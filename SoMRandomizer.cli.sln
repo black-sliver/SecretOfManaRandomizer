@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer.cli", "SoMRandomizer.cli\SoMRandomizer.cli.csproj", "{5B6AB118-3000-4671-A050-A049979A5636}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer", "SoMRandomizer\SoMRandomizer.csproj", "{8A938EB4-F1A7-4178-A931-59CF360596ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B6AB118-3000-4671-A050-A049979A5636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B6AB118-3000-4671-A050-A049979A5636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B6AB118-3000-4671-A050-A049979A5636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B6AB118-3000-4671-A050-A049979A5636}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A938EB4-F1A7-4178-A931-59CF360596ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A938EB4-F1A7-4178-A931-59CF360596ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A938EB4-F1A7-4178-A931-59CF360596ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A938EB4-F1A7-4178-A931-59CF360596ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

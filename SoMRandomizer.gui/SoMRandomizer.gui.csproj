@@ -1,0 +1,159 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectGuid>{1F611BF5-038E-4F9D-AE99-75CB5B17C17D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net462</TargetFramework>
+    <AssemblyTitle>SoMRandomizer</AssemblyTitle>
+    <Company>Moppleton</Company>
+    <Product>SoMRandomizer</Product>
+    <Copyright>Copyright ©  2016-2024</Copyright>
+    <Deterministic>false</Deterministic>
+    <AssemblyVersion>1.0.*</AssemblyVersion>
+    <FileVersion>1.0.*</FileVersion>
+    <LangVersion>7.2</LangVersion>
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+    <RootNamespace>SoMRandomizer.gui</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\tonpole.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.*" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.*" />
+    <PackageReference Include="System.Net.Http" Version="4.*" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+    <PackageReference Include="System.Buffers" Version="4.5.1" />
+    <PackageReference Include="System.Memory" Version="4.5.5" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="9.0.0" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="8.0.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.4" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+    <PackageReference Include="U8XmlParser" Version="1.6.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="forms\MainForm_DifficultyOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\MainForm_OpenWorldPresets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\MainForm_UiOptionsInitialization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\CharacterDesigner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\CharacterDesigner.Designer.cs">
+      <DependentUpon>CharacterDesigner.cs</DependentUpon>
+    </Compile>
+    <Compile Update="help\InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="help\InfoForm.Designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="config\ui\OptionsCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="config\ui\OptionsCategoryForm.Designer.cs">
+      <DependentUpon>OptionsCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="config\ui\OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="config\ui\OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="forms\PaletteControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="forms\PlandoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\PlandoForm.Designer.cs">
+      <DependentUpon>PlandoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="forms\PresetsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\PresetsForm.Designer.cs">
+      <DependentUpon>PresetsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="config\ui\TablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="config\ui\TablePanel.Designer.cs">
+      <DependentUpon>TablePanel.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="forms\CharacterDesigner.resx">
+      <DependentUpon>CharacterDesigner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="help\InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="config\ui\OptionsCategoryForm.resx">
+      <DependentUpon>OptionsCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="config\ui\OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="forms\PlandoForm.resx">
+      <DependentUpon>PlandoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="forms\PresetsForm.resx">
+      <DependentUpon>PresetsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resources\help\forest_goal.png" />
+    <EmbeddedResource Include="Resources\help\island_goal.png" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SoMRandomizer\SoMRandomizer.csproj" />
+  </ItemGroup> 
+  <Target Name="EmbedCopyLocalDlls" AfterTargets="ResolveReferences">
+    <Message Text="ReferenceCopyLocalPaths: @(ReferenceCopyLocalPaths)" Importance="High" />
+    <ItemGroup>
+      <EmbeddedResource Include="@(ReferenceCopyLocalPaths)" Condition="'%(ReferenceCopyLocalPaths.Extension)' == '.dll'">
+        <LogicalName>%(ReferenceCopyLocalPaths.DestinationSubDirectory)%(ReferenceCopyLocalPaths.Filename)%(ReferenceCopyLocalPaths.Extension)</LogicalName>
+      </EmbeddedResource>
+    </ItemGroup>
+  </Target>
+</Project>

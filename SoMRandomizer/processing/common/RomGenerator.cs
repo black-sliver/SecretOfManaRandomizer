@@ -316,8 +316,10 @@ namespace SoMRandomizer.processing.common
 
             if (settings.getBool(CommonSettings.PROPERTYNAME_RACE_MODE))
             {
-                // use random.next to re-seed random to get new random numbers, but still be deterministic per seed
-                context.randomFunctional = new DotNet110Random(context.randomFunctional.Next());
+                // advance randomness state up to 8 times.
+                // no clue if this is needed, once might be fine as well
+                int times = context.randomFunctional.Next(8);
+                for (; times > 0; times--) context.randomFunctional.Next();
             }
             Logging.ClearLoggers();
             if (settings.getBool(CommonSettings.PROPERTYNAME_TEST_ONLY))

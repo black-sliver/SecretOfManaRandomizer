@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer", "SoMRandomizer\SoMRandomizer.csproj", "{1F611BF5-038E-4F9D-AE99-75CB5B17C17D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer.gui", "SoMRandomizer.gui\SoMRandomizer.gui.csproj", "{1F611BF5-038E-4F9D-AE99-75CB5B17C17D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer", "SoMRandomizer\SoMRandomizer.csproj", "{80C060CA-26A7-4388-B04D-AA43D9D676C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer.cli", "SoMRandomizer.cli\SoMRandomizer.cli.csproj", "{FF36B05F-AD83-4945-ADF2-CD4FEF74AEAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer.api", "SoMRandomizer.api\SoMRandomizer.api.csproj", "{3F2BABDB-36EB-4197-9C07-3A4CD3FA561C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{1F611BF5-038E-4F9D-AE99-75CB5B17C17D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F611BF5-038E-4F9D-AE99-75CB5B17C17D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F611BF5-038E-4F9D-AE99-75CB5B17C17D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80C060CA-26A7-4388-B04D-AA43D9D676C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80C060CA-26A7-4388-B04D-AA43D9D676C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80C060CA-26A7-4388-B04D-AA43D9D676C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80C060CA-26A7-4388-B04D-AA43D9D676C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF36B05F-AD83-4945-ADF2-CD4FEF74AEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF36B05F-AD83-4945-ADF2-CD4FEF74AEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF36B05F-AD83-4945-ADF2-CD4FEF74AEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF36B05F-AD83-4945-ADF2-CD4FEF74AEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F2BABDB-36EB-4197-9C07-3A4CD3FA561C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F2BABDB-36EB-4197-9C07-3A4CD3FA561C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F2BABDB-36EB-4197-9C07-3A4CD3FA561C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F2BABDB-36EB-4197-9C07-3A4CD3FA561C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -269,7 +269,7 @@ namespace SoMRandomizer.processing.hacks.openworld
             string resourceName = outfitNeso.filename;
             string outfitName = outfitNeso.outfitName;
             Logging.log("Nesoberi: " + nesoInfo.characterName + " (" + outfitName + "). Headpats are encouraged and greatly appreciated.", "spoiler");
-            byte[] bmpData = DataUtil.readResource("SoMRandomizer.Resources.nesoberi." + resourceName);
+            byte[] bmpData = DataUtil.readResource("nesoberi." + resourceName);
 
             Bitmap b = new Bitmap(new MemoryStream(bmpData));
             // presumes 0,0 is the bg color; should be true of all these
@@ -585,7 +585,7 @@ namespace SoMRandomizer.processing.hacks.openworld
             snowNesoPaletteIndexes[getColorInt(Color.FromArgb(184, 168, 208))] = 5;
             snowNesoPaletteIndexes[getColorInt(Color.FromArgb(152, 136, 192))] = 6; // snow darkest
 
-            byte[] snowNesoBmpData = DataUtil.readResource("SoMRandomizer.Resources.nesoberi.snow_neso.bmp");
+            byte[] snowNesoBmpData = DataUtil.readResource("nesoberi.snow_neso.bmp");
 
             Bitmap snowNesoBitmap = new Bitmap(new MemoryStream(snowNesoBmpData));
             // 8-bit image by using the mapped colors above

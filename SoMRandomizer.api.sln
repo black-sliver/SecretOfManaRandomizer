@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer", "SoMRandomizer\SoMRandomizer.csproj", "{BE51D140-BA78-412F-99C5-CC261A75A8C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer.api", "SoMRandomizer.api\SoMRandomizer.api.csproj", "{FEE37E3D-49BA-4A4B-BC05-140E91C2927B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE51D140-BA78-412F-99C5-CC261A75A8C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE51D140-BA78-412F-99C5-CC261A75A8C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE51D140-BA78-412F-99C5-CC261A75A8C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE51D140-BA78-412F-99C5-CC261A75A8C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEE37E3D-49BA-4A4B-BC05-140E91C2927B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE37E3D-49BA-4A4B-BC05-140E91C2927B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE37E3D-49BA-4A4B-BC05-140E91C2927B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE37E3D-49BA-4A4B-BC05-140E91C2927B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

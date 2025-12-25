@@ -21,7 +21,7 @@ namespace SoMRandomizer.processing.hacks.common.other
         {
             // 190500 -> 191300
             int offset = 0x190500;
-            byte[] resourceData = DataUtil.readResource("SoMRandomizer.Resources.vineshroom_tiles.bin");
+            byte[] resourceData = DataUtil.readResource("vineshroom_tiles.bin");
 
             for (int i = 0; i < resourceData.Length; i++)
             {

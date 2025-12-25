@@ -390,7 +390,7 @@ namespace SoMRandomizer.processing.hacks.vanillarando
 
             int[] changePaletteSets1 = new int[] { 24, 25, 26, 29, 35, 36, 57, 59, 61, 62, 78, 81, 112 };
 
-            byte[] giftBoxGraphics = DataUtil.readResource("SoMRandomizer.Resources.giftbox_tiles.bin");
+            byte[] giftBoxGraphics = DataUtil.readResource("giftbox_tiles.bin");
             for (int i = 0; i < giftBoxGraphics.Length; i++)
             {
                 outRom[i + 0x186540] = giftBoxGraphics[i];

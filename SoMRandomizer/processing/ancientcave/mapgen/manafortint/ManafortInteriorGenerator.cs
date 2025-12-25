@@ -561,7 +561,7 @@ namespace SoMRandomizer.processing.ancientcave.mapgen.manafortint
 
             // pre-built arena
             // 32x32 bytes
-            byte[] bossRoomData = DataUtil.readResource("SoMRandomizer.Resources.customMaps.acManafortBossArenaL1.bin");
+            byte[] bossRoomData = DataUtil.readResource("customMaps.acManafortBossArenaL1.bin");
 
             for (int y = 0; y < 32; y++)
             {

@@ -22,7 +22,7 @@ namespace SoMRandomizer.processing.ancientcave.mapgen
 
         public MapPaletteSet getPaletteData(RandoContext context)
         {
-            byte[] palData = DataUtil.readResource("SoMRandomizer.Resources.mapPalettes." + resourceName);
+            byte[] palData = DataUtil.readResource("mapPalettes." + resourceName);
             return new MapPaletteSet(palData);
         }
 

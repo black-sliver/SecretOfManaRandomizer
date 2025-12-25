@@ -33,7 +33,7 @@ namespace SoMRandomizer.processing.openworld.events
                 string pokemonDescription = "";
                 int generation = 0;
                 Assembly assemb = Assembly.GetExecutingAssembly();
-                using (Stream stream = assemb.GetManifestResourceStream("SoMRandomizer.Resources.pokedata3.xml"))
+                using (Stream stream = assemb.GetManifestResourceStream($"{assemb.GetName().Name}.Resources.pokedata3.xml"))
                 {
                     using (var xml = XmlParser.Parse(stream))
                     {

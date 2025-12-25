@@ -16,7 +16,7 @@ namespace SoMRandomizer.processing.ancientcave.mapgen.manafortint
         {
             int mapWidth = layer1.GetLength(0);
             int mapHeight = layer1.GetLength(1);
-            byte[] layer1Data = DataUtil.readResource("SoMRandomizer.Resources.customMaps.acManafortNpcRoomL1.bin");
+            byte[] layer1Data = DataUtil.readResource("customMaps.acManafortNpcRoomL1.bin");
             int doorNum = 0;
             for (int y = 0; y < mapHeight; y += 32)
             {

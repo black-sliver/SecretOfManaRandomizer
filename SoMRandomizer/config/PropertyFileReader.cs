@@ -51,7 +51,7 @@ namespace SoMRandomizer.config
                 string[] names = assemb.GetManifestResourceNames();
                 try
                 {
-                    Stream stream = assemb.GetManifestResourceStream("SoMRandomizer.Resources." + resourceName);
+                    Stream stream = assemb.GetManifestResourceStream($"{assemb.GetName().Name}.Resources." + resourceName);
                     StreamReader reader = new StreamReader(stream, Encoding.Default);
                     return readPropertyStream(reader);
                 }

@@ -17,8 +17,8 @@ namespace SoMRandomizer.processing.bossrush
         public static void makeRestMapCommon(RandoContext context)
         {
             // make shared content for rest maps - should only be called once per boss rush generation
-            byte[] layer1 = DataUtil.readResource("SoMRandomizer.Resources.customMaps.bossRushRestMapL1.bin");
-            byte[] layer2 = DataUtil.readResource("SoMRandomizer.Resources.customMaps.bossRushRestMapL2.bin");
+            byte[] layer1 = DataUtil.readResource("customMaps.bossRushRestMapL1.bin");
+            byte[] layer2 = DataUtil.readResource("customMaps.bossRushRestMapL2.bin");
 
             // generate some of layer1 based off layer2
             for (int i = 0; i < layer1.Length; i++)
