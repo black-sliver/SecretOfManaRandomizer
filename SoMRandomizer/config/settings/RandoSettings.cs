@@ -102,5 +102,10 @@ namespace SoMRandomizer.config.settings
                 set(key, settings[key]);
             }
         }
+
+        public CommonSettings CommonSettings
+        {
+            get { return commonSettings; }
+        }
     }
 }
