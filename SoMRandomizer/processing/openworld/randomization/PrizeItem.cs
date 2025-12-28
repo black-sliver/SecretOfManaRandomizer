@@ -1,4 +1,5 @@
-﻿
+﻿using System.Threading;
+
 namespace SoMRandomizer.processing.openworld.randomization
 {
     /// <summary>
@@ -21,7 +22,7 @@ namespace SoMRandomizer.processing.openworld.randomization
         // event flag to flip to 1 when we got the prize
         public byte gotItemEventFlag;
         public double value; // higher = more important
-        private int uid;
+        private readonly int uid;
 
         public PrizeItem(string name, string type, byte[] data, string hint, byte eventFlag, double prizeValue)
         {
@@ -31,7 +32,7 @@ namespace SoMRandomizer.processing.openworld.randomization
             hintName = hint;
             gotItemEventFlag = eventFlag;
             value = prizeValue;
-            uid = PRIZE_UID++;
+            uid = Interlocked.Increment(ref PRIZE_UID);
         }
 
         public override bool Equals(object obj)
