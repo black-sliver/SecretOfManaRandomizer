@@ -83,7 +83,10 @@ namespace SoMRandomizer.processing.openworld.randomization
             // the final "prize" is the completion of the game.
             for (int i = 0; i < numGifts - 1; i++)
             {
-                PrizeLocation santaLoc = new PrizeLocation("santa gift " + i, -1, -1, GiftDeliveryIntroEvent.SANTA_DIALOGUE_EVENTS[i * 2 + 1], 0, new string[] { }, new string[] { "from Santa" }, new string[] { }, 1.0 - i * 0.1);
+                var locationId = (LocationId)((byte)LocationId.SantaGift0 + i);
+                PrizeLocation santaLoc = new PrizeLocation(locationId, -1, -1,
+                    GiftDeliveryIntroEvent.SANTA_DIALOGUE_EVENTS[i * 2 + 1], 0, new string[] { },
+                    new string[] { "from Santa" }, new string[] { }, 1.0 - i * 0.1);
                 filteredLocations.Add(santaLoc);
             }
 

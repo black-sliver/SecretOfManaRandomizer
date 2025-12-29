@@ -9,6 +9,10 @@ namespace SoMRandomizer.processing.openworld.randomization
     /// <remarks>Author: Moppleton</remarks>
     public class PrizeLocation
     {
+        /// <summary>
+        /// Identifier of the location. In each rolled game there are no duplicates.
+        /// </summary>
+        public readonly LocationId locationId;
         // name of the location - these are unique
         public string locationName;
         // map number
@@ -27,10 +31,11 @@ namespace SoMRandomizer.processing.openworld.randomization
         // higher is easy to get
         public double reachability = 0;
 
-        public PrizeLocation(string name, int map, int obj, int evNum, int evReplaceIndex, string[] typeOptions, string[] hints, string[] lockedBy, double locationReachability)
+        public PrizeLocation(LocationId id, int map, int obj, int evNum, int evReplaceIndex, string[] typeOptions, string[] hints, string[] lockedBy, double locationReachability)
         {
             // chest constructor, with event replacement for object to ensure it disappears
-            locationName = name;
+            locationId = id;
+            locationName = IdMap.LocationNames[id];
             mapNum = map;
             objNum = obj;
             eventNum = evNum;
@@ -41,12 +46,12 @@ namespace SoMRandomizer.processing.openworld.randomization
             reachability = locationReachability;
         }
 
-        public PrizeLocation(string name, int evNum, int evReplaceIndex, string[] typeOptions, string[] hints, string[] lockedBy, double locationReachability) : this(name, -1, -1, evNum, evReplaceIndex, typeOptions, hints, lockedBy, locationReachability)
+        public PrizeLocation(LocationId id, int evNum, int evReplaceIndex, string[] typeOptions, string[] hints, string[] lockedBy, double locationReachability) : this(id, -1, -1, evNum, evReplaceIndex, typeOptions, hints, lockedBy, locationReachability)
         {
             // non-chest constructor
         }
 
-        public PrizeLocation(string name, int evNum, int evReplaceIndex, string[] typeOptions, string[] lockedBy, double locationReachability) : this(name, evNum, evReplaceIndex, typeOptions, new string[] { }, lockedBy, locationReachability)
+        public PrizeLocation(LocationId id, int evNum, int evReplaceIndex, string[] typeOptions, string[] lockedBy, double locationReachability) : this(id, evNum, evReplaceIndex, typeOptions, new string[] { }, lockedBy, locationReachability)
         {
             // no hints constructor for starting stuff
         }
@@ -95,7 +100,7 @@ namespace SoMRandomizer.processing.openworld.randomization
 
         public override bool Equals(object obj)
         {
-            return obj is PrizeLocation && locationName == ((PrizeLocation)obj).locationName;
+            return obj is PrizeLocation && locationId == ((PrizeLocation)obj).locationId;
         }
 
         public override int GetHashCode()
