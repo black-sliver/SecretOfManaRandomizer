@@ -5,6 +5,7 @@
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
     <RootNamespace>SoMRandomizer</RootNamespace>
     <LangVersion>7.2</LangVersion>
+    <Clean>false</Clean>
   </PropertyGroup>
 
   <ItemGroup>
@@ -107,7 +108,7 @@
     <EmbeddedResource Include="Resources\nesoberi\nesoberi_you_wink.bmp" />
     <EmbeddedResource Include="Resources\nesoberi\nesoberi_yu.bmp" />
     <EmbeddedResource Include="Resources\nesoberi\snow_neso.bmp" />
-    <EmbeddedResource Include="Resources\pokedata3.xml" />
+    <EmbeddedResource Condition="'$(Clean)' != 'true'" Include="Resources\pokedata3.xml" />
     <EmbeddedResource Include="Resources\vineshroom_tiles.bin" />
   </ItemGroup>
 

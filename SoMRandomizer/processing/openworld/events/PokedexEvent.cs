@@ -25,6 +25,7 @@ namespace SoMRandomizer.processing.openworld.events
         protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
         {
             // pokedex entry in lemonlime haired pandora lady
+            Stream stream = null;
             try
             {
                 Random r = context.randomFunctional;
@@ -33,65 +34,79 @@ namespace SoMRandomizer.processing.openworld.events
                 string pokemonDescription = "";
                 int generation = 0;
                 Assembly assemb = Assembly.GetExecutingAssembly();
-                using (Stream stream = assemb.GetManifestResourceStream($"{assemb.GetName().Name}.Resources.pokedata3.xml"))
+                stream = assemb.GetManifestResourceStream($"{assemb.GetName().Name}.Resources.pokedata3.xml");
+                if (stream == null)
                 {
-                    using (var xml = XmlParser.Parse(stream))
+                    // TODO: allow getting pokedata from external file
+                    Logging.log("Pokedata not available");
+                    return false;
+                }
+
+                using (var xml = XmlParser.Parse(stream))
+                {
+                    var pokeDexNode = xml.Root;
+                    var pokemonNodes = pokeDexNode.Children;
+                    var randomPokemon = pokemonNodes.ElementAt(r.Next() % pokemonNodes.Count);
+                    pokemonNumber = randomPokemon.FindAttribute("id").Value.ToString();
+
+                    int pokeNum = Int32.Parse(pokemonNumber);
+                    if (pokeNum >= 1 && pokeNum <= 151)
                     {
-                        var pokeDexNode = xml.Root;
-                        var pokemonNodes = pokeDexNode.Children;
-                        var randomPokemon = pokemonNodes.ElementAt(r.Next() % pokemonNodes.Count);
-                        pokemonNumber = randomPokemon.FindAttribute("id").Value.ToString();
-
-                        int pokeNum = Int32.Parse(pokemonNumber);
-                        if (pokeNum >= 1 && pokeNum <= 151)
-                        {
-                            generation = 1;
-                        }
-                        if (pokeNum >= 152 && pokeNum <= 251)
-                        {
-                            generation = 2;
-                        }
-                        if (pokeNum >= 252 && pokeNum <= 386)
-                        {
-                            generation = 3;
-                        }
-                        if (pokeNum >= 387 && pokeNum <= 493)
-                        {
-                            generation = 4;
-                        }
-
-                        foreach (var node in randomPokemon.Children)
-                        {
-                            if (node.Name.ToString() == "name")
-                            {
-                                pokemonName = node.InnerText.ToString();
-                            }
-                            if (node.Name.ToString() == "description")
-                            {
-                                pokemonDescription = node.InnerText.ToString();
-                            }
-                        }
+                        generation = 1;
                     }
 
-                    if (pokemonNumber != "0" && pokemonName != "" && pokemonDescription != "" && generation != 0)
+                    if (pokeNum >= 152 && pokeNum <= 251)
                     {
-                        // lemon-lime colored lady in the upper right of pandora town
-                        EventScript newEvent143 = new EventScript();
-                        context.replacementEvents[0x143] = newEvent143;
-
-                        string pokemonDialogue = "Pokemon of the Day:\n " + "No. " + pokemonNumber + ": " + pokemonName + "\n Generation " + generation + "\n";
-                        string pokemonDescriptionWordwrap = VanillaEventUtil.wordWrapText(pokemonDescription);
-                        pokemonDialogue += pokemonDescriptionWordwrap;
-                        Logging.log(pokemonDialogue, "spoiler");
-                        newEvent143.AddDialogueBox(pokemonDialogue);
-                        newEvent143.End();
+                        generation = 2;
                     }
+
+                    if (pokeNum >= 252 && pokeNum <= 386)
+                    {
+                        generation = 3;
+                    }
+
+                    if (pokeNum >= 387 && pokeNum <= 493)
+                    {
+                        generation = 4;
+                    }
+
+                    foreach (var node in randomPokemon.Children)
+                    {
+                        if (node.Name.ToString() == "name")
+                        {
+                            pokemonName = node.InnerText.ToString();
+                        }
+
+                        if (node.Name.ToString() == "description")
+                        {
+                            pokemonDescription = node.InnerText.ToString();
+                        }
+                    }
+                }
+
+                if (pokemonNumber != "0" && pokemonName != "" && pokemonDescription != "" && generation != 0)
+                {
+                    // lemon-lime colored lady in the upper right of pandora town
+                    EventScript newEvent143 = new EventScript();
+                    context.replacementEvents[0x143] = newEvent143;
+
+                    string pokemonDialogue = "Pokemon of the Day:\n " + "No. " + pokemonNumber + ": " +
+                                             pokemonName + "\n Generation " + generation + "\n";
+                    string pokemonDescriptionWordwrap = VanillaEventUtil.wordWrapText(pokemonDescription);
+                    pokemonDialogue += pokemonDescriptionWordwrap;
+                    Logging.log(pokemonDialogue, "spoiler");
+                    newEvent143.AddDialogueBox(pokemonDialogue);
+                    newEvent143.End();
                 }
 
             }
             catch (Exception e)
             {
                 // well, she'll have vanilla dialogue i guess
+            }
+            finally
+            {
+                stream?.Dispose();
             }
             return true;
         }

@@ -10,6 +10,8 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\SoMRandomizer\SoMRandomizer.csproj"/>
+        <ProjectReference Include="..\SoMRandomizer\SoMRandomizer.csproj">
+            <Properties>Clean=true</Properties>
+        </ProjectReference>
     </ItemGroup>
 </Project>
