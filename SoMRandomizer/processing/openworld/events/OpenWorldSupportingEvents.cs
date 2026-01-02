@@ -815,6 +815,9 @@ namespace SoMRandomizer.processing.openworld.events
             {
                 newEvent2c1.AddDialogueBox("Today's orb element is:\n" + SomVanillaValues.elementOrbByteToName(crystalOrbColorMap[35], false) + "!");
             }
+            // flag is supposed to be 1 when you enter the palace
+            newEvent2c1.Logic(EventFlags.LUNA_PALACE_FLAG, 0x0, 0x0,
+                EventScript.GetIncrCmd(EventFlags.LUNA_PALACE_FLAG));
             newEvent2c1.Door(0x278);
             newEvent2c1.End();
 

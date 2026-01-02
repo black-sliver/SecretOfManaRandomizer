@@ -107,6 +107,9 @@ namespace SoMRandomizer.processing.openworld.events
             // 0x132: luka at water palace
             EventScript newEvent132 = new EventScript();
             context.replacementEvents[0x132] = newEvent132;
+            // FIXME: Luka does not check if you have the seed
+            newEvent132.Logic(EventFlags.WATER_PALACE_FLAG, 0xB, 0xF,
+                EventScript.GetJumpCmd(0x396)); // already got this
             injectReplacementPattern(newEvent132, 1);
             injectReplacementPattern(newEvent132, 0);
             newEvent132.SetFlag(EventFlags.WATER_PALACE_FLAG, 0xB); // mark this whole sequence as done
@@ -122,6 +125,9 @@ namespace SoMRandomizer.processing.openworld.events
             newEvent581.Add(0x06);
             newEvent581.Add(EventCommandEnum.HEAL.Value);
             newEvent581.Add(0x44); // shrug
+            newEvent581.Logic(EventFlags.OPEN_WORLD_TONPOLE_FLAG, 0x2, 0xF,
+                EventScript.GetJumpCmd(0x396)); // already got this
+            newEvent581.IncrFlag(EventFlags.OPEN_WORLD_TONPOLE_FLAG);
             injectReplacementPattern(newEvent581, 0); // undine
             injectReplacementPattern(newEvent581, 1); // poledart
             newEvent581.End();
@@ -143,6 +149,8 @@ namespace SoMRandomizer.processing.openworld.events
             {
                 newEvent22e.Logic(EventFlags.EARTH_SEED, 0x0, 0x0, EventScript.GetJumpCmd(0x133)); // request earth seed if you don't have it
             }
+            newEvent22e.Logic(EventFlags.EARTHPALACE_FLAG, 0x7, 0xF,
+                EventScript.GetJumpCmd(0x396)); // already got this
             injectReplacementPattern(newEvent22e, 0); // gnome
             injectReplacementPattern(newEvent22e, 1); // earth seed
             newEvent22e.Add(0x09); // shrug
@@ -377,6 +385,8 @@ namespace SoMRandomizer.processing.openworld.events
             {
                 newEvent4E2.Logic(EventFlags.WIND_SEED, 0x0, 0x0, EventScript.GetJumpCmd(0x133)); // don't have wind seed? request wind seed
             }
+            newEvent4E2.Logic(EventFlags.UPPERLAND_PROGRESS_FLAG, 0x5, 0xF,
+                EventScript.GetJumpCmd(0x396)); // already got this
             injectReplacementPattern(newEvent4E2, 0);
             injectReplacementPattern(newEvent4E2, 1);
             newEvent4E2.IncrFlag(EventFlags.UPPERLAND_PROGRESS_FLAG); // mark this as gotten so we can run the save/restore event next time
@@ -391,6 +401,9 @@ namespace SoMRandomizer.processing.openworld.events
             {
                 newEvent589.Logic(EventFlags.FIRE_SEED, 0x0, 0x0, EventScript.GetJumpCmd(0x133)); // don't have fire seed? request fire seed
             }
+            newEvent589.Logic(EventFlags.FIRE_PALACE_COMPLETION_FLAG, 0x4, 0xF,
+                EventScript.GetJumpCmd(0x396)); // already got this
+            newEvent589.IncrFlag(EventFlags.FIRE_PALACE_COMPLETION_FLAG);
             injectReplacementPattern(newEvent589, 0);
             newEvent589.End();
 
@@ -402,6 +415,9 @@ namespace SoMRandomizer.processing.openworld.events
             {
                 newEvent587.Logic(EventFlags.LIGHT_SEED, 0x0, 0x0, EventScript.GetJumpCmd(0x133)); // don't have light seed? request light seed
             }
+            newEvent587.Logic(EventFlags.LUMINA_TOWER_PROGRESS_FLAG, 0x8, 0xF,
+                EventScript.GetJumpCmd(0x396)); // already got this
+            newEvent587.IncrFlag(EventFlags.LUMINA_TOWER_PROGRESS_FLAG);
             injectReplacementPattern(newEvent587, 0);
             injectReplacementPattern(newEvent587, 1);
             newEvent587.End();
@@ -414,6 +430,9 @@ namespace SoMRandomizer.processing.openworld.events
             {
                 newEvent586.Logic(EventFlags.DARK_SEED, 0x0, 0x0, EventScript.GetJumpCmd(0x133)); // don't have dark seed? request dark seed
             }
+            newEvent586.Logic(EventFlags.SHADE_PALACE_PROGRESS_FLAG_1, 0x7, 0xF,
+                EventScript.GetJumpCmd(0x396)); // already got this
+            newEvent586.IncrFlag(EventFlags.SHADE_PALACE_PROGRESS_FLAG_1);
             injectReplacementPattern(newEvent586, 0);
             injectReplacementPattern(newEvent586, 1);
             newEvent586.End();
@@ -426,6 +445,9 @@ namespace SoMRandomizer.processing.openworld.events
             {
                 newEvent584.Logic(EventFlags.MOON_SEED, 0x0, 0x0, EventScript.GetJumpCmd(0x133)); // don't have moon seed? request moon seed
             }
+            newEvent584.Logic(EventFlags.LUNA_PALACE_FLAG, 0x3, 0xF,
+                EventScript.GetJumpCmd(0x396)); // already got this
+            newEvent584.SetFlag(EventFlags.LUNA_PALACE_FLAG, 3); // SetFlag to be safe
             injectReplacementPattern(newEvent584, 0);
             injectReplacementPattern(newEvent584, 1);
             newEvent584.End();
@@ -438,6 +460,9 @@ namespace SoMRandomizer.processing.openworld.events
             {
                 newEvent4b6.Logic(EventFlags.DRYAD_SEED, 0x0, 0x0, EventScript.GetJumpCmd(0x133)); // don't have dryad seed? request dryad seed
             }
+            newEvent4b6.Logic(EventFlags.NORTHTOWN_PHANNA_FLAG, 0x3, 0xF,
+                EventScript.GetJumpCmd(0x396)); // already got this
+            newEvent4b6.SetFlag(EventFlags.NORTHTOWN_PHANNA_FLAG, 3); // for whatever reason this flag is in vanilla
             injectReplacementPattern(newEvent4b6, 0);
             injectReplacementPattern(newEvent4b6, 1);
             newEvent4b6.End();
@@ -446,6 +471,9 @@ namespace SoMRandomizer.processing.openworld.events
             // 0x399: mara - one prize
             EventScript newEvent399 = new EventScript();
             context.replacementEvents[0x399] = newEvent399;
+            newEvent399.Logic(EventFlags.SOUTHTOWN_MARA_FLAG, 0x2, 0xF,
+                EventScript.GetJumpCmd(0x396)); // already got this
+            newEvent399.IncrFlag(EventFlags.SOUTHTOWN_MARA_FLAG);
             injectReplacementPattern(newEvent399, 0);
             newEvent399.End();
 
