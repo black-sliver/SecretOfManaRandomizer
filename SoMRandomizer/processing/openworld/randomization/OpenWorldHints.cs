@@ -57,6 +57,11 @@ namespace SoMRandomizer.processing.openworld.randomization
 
         public static void addHints(RandoSettings settings, RandoContext context, Dictionary<PrizeLocation, PrizeItem> itemPlacements, SimResult simulationResult)
         {
+            if (itemPlacements.Keys.Count == 0)
+            {
+                throw new Exception("Can't add hints without placements");
+            }
+
             Random r = context.randomFunctional;
             string goal = context.workingData.get(OpenWorldGoalProcessor.GOAL_SHORT_NAME);
             Dictionary<int, byte> crystalOrbColorMap = ElementSwaps.getCrystalOrbElementMap(context);
@@ -116,6 +121,7 @@ namespace SoMRandomizer.processing.openworld.randomization
                 importantPrizes.Remove(hintPrize);
                 foreach (PrizeLocation location in itemPlacements.Keys)
                 {
+                    if (location.locationHints.Length == 0) continue; // unhintable location
                     if (itemPlacements[location].prizeName == hintPrize)
                     {
                         string nesoHint = location.locationHints[r.Next() % location.locationHints.Length];
@@ -332,6 +338,11 @@ namespace SoMRandomizer.processing.openworld.randomization
                             i++;
                         }
 
+                        if (location.locationHints.Length == 0)
+                        {
+                            Logging.log("Encountered unhintable location: " + location.locationName +  " for " + prize);
+                            continue; // unhintable location
+                        }
                         hintedPrizes.Add(prize);
                         string hintLoc = location.locationHints[r.Next() % location.locationHints.Length];
                         if (allowMissedItems && simulationResult.collectionCycles.SelectMany(x => x).All(loc => loc != location.locationName))
