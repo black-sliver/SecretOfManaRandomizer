@@ -586,6 +586,13 @@ namespace SoMRandomizer.processing.openworld.randomization
                     new string[] { "in an early-game area", "in the rabite forest", "in the Potos area" },
                     new string[] { DEPENDENCY_CUTTING_WEAPON }, 0.8));
             }
+
+            // update some of the requirements based on logic options
+            foreach (var location in allLocations)
+            {
+                location.updateLockedByPrizes(flammieDrumInLogic, _upperLandElement, goal);
+            }
+
             return allLocations;
         }
 

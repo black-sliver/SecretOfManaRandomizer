@@ -56,16 +56,17 @@ namespace SoMRandomizer.processing.openworld.randomization
             // no hints constructor for starting stuff
         }
 
-        public string[] getLockedByPrizes(bool flammieDrumInLogic, string _upperLandElement, string goal)
+        public void updateLockedByPrizes(bool flammieDrumInLogic, string _upperLandElement, string goal)
         {
-            List<string> allPrizes = new List<string>();
-            allPrizes.AddRange(lockedByPrizes);
             if (flammieDrumInLogic)
             {
+                List<string> allPrizes = new List<string>();
+                allPrizes.AddRange(lockedByPrizes);
                 if (OpenWorldPrizes.flammieRequiredLocations.Contains(locationName))
                 {
+                    // TODO: FIXME: this actually only spells if flammie drum is locked by it
                     allPrizes.Add("flammie drum");
-                    if (_upperLandElement != "no")
+                    if (_upperLandElement != "no" && !allPrizes.Contains(_upperLandElement + " spells"))
                     {
                         allPrizes.Add(_upperLandElement + " spells");
                     }
@@ -77,7 +78,8 @@ namespace SoMRandomizer.processing.openworld.randomization
                         // reverse logic since we start in ice country
                         if (!OpenWorldPrizes.upperLandOrbRequiredLocations.Contains(locationName))
                         {
-                            if (_upperLandElement != "no")
+                            // TODO: FIXME: this actually needs flammie drum OR spells
+                            if (_upperLandElement != "no" && !allPrizes.Contains(_upperLandElement + " spells"))
                             {
                                 allPrizes.Add(_upperLandElement + " spells");
                             }
@@ -87,15 +89,22 @@ namespace SoMRandomizer.processing.openworld.randomization
                     {
                         if (OpenWorldPrizes.upperLandOrbRequiredLocations.Contains(locationName))
                         {
-                            if (_upperLandElement != "no")
+                            // TODO: FIXME: this actually needs flammie drum OR spells
+                            if (_upperLandElement != "no" && !allPrizes.Contains(_upperLandElement + " spells"))
                             {
                                 allPrizes.Add(_upperLandElement + " spells");
                             }
                         }
                     }
                 }
+                lockedByPrizes = allPrizes.ToArray();
             }
-            return allPrizes.ToArray();
+        }
+
+        public string[] getLockedByPrizes(bool flammieDrumInLogic, string _upperLandElement, string goal)
+        {
+            // TODO: FIXME: we probably don't even need to clone here
+            return lockedByPrizes.Clone() as string[];
         }
 
         public override bool Equals(object obj)

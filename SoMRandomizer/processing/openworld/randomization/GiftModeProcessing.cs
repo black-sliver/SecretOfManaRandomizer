@@ -90,6 +90,8 @@ namespace SoMRandomizer.processing.openworld.randomization
                 filteredLocations.Add(santaLoc);
             }
 
+            // TODO: santaLoc.updateLockedByPrizes(flammieDrumInLogic, _upperLandElement, goal);
+
             // dependency is .. dependency of the santa prizes before it, + dependency of the gift's location, + any dependency of getting to the location itself
             // some of this we don't know and have to fill in below post-process
             return filteredLocations;
