@@ -3,6 +3,7 @@ using SoMRandomizer.processing.common.structure;
 using SoMRandomizer.processing.hacks.common.util;
 using System;
 using System.Collections.Generic;
+using SoMRandomizer.logging;
 
 namespace SoMRandomizer.processing.common
 {
@@ -43,5 +44,9 @@ namespace SoMRandomizer.processing.common
         public Dictionary<int, Door> replacementDoors = new Dictionary<int, Door>();
         // generated map palette sets
         public Dictionary<int, MapPaletteSet> replacementMapPalettes = new Dictionary<int, MapPaletteSet>();
+        // loggers
+        public Logging fileLogger = null;
+        public Logging fileLoggerSpoiler = null;
+        public Logging fileLoggerDebug = null;
     }
 }

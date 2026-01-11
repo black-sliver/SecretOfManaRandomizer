@@ -42,7 +42,31 @@ namespace SoMRandomizer.processing
                 throw e; // caught by higher-level stuff to fail the rom generation
             }
         }
+
+        /// <summary>
+        /// Prepare the processor. All changes a processor does to settings and context should here.
+        /// </summary>
+        /// <param name="origRom">The original ROM data.</param>
+        /// <param name="seed">The seed value for randomization.</param>
+        /// <param name="settings">The settings.</param>
+        /// <param name="context">The context.</param>
+        // ReSharper disable once InconsistentNaming
+        public virtual void prepare(byte[] origRom, string seed, RandoSettings settings, RandoContext context)
+        {
+        }
+
+        /// <summary>
+        /// Applies a processor. Settings and context should only be read here.
+        /// </summary>
+        /// <param name="origRom">The original ROM data.</param>
+        /// <param name="outRom">The output buffer for the new ROM.</param>
+        /// <param name="seed">The seed value for randomization.</param>
+        /// <param name="settings">The settings.</param>
+        /// <param name="context">The context.</param>
+        /// <returns>True if the processor was applied, false if it was skipped.</returns>
+        // ReSharper disable once InconsistentNaming
         protected abstract bool process(byte[] origRom, byte[] outRom, String seed, RandoSettings settings, RandoContext context);
+
         protected abstract string getName();
     }
 }

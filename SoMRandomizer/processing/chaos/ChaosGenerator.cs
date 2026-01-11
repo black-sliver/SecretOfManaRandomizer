@@ -53,6 +53,11 @@ namespace SoMRandomizer.processing.chaos
             addModeSpecificHack(new CustomMusic());
         }
 
+        protected override void prepare(byte[] origRom, string seed, RandoSettings settings, RandoContext context)
+        {
+            prepareHacks(origRom, seed, settings, context);
+        }
+
         protected override void generate(byte[] origRom, byte[] outRom, String seed, RandoSettings settings, RandoContext context)
         {
             applyHacks(origRom, outRom, seed, settings, context);

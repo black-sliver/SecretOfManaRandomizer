@@ -587,7 +587,10 @@ namespace SoMRandomizer.gui.forms
                 try
                 {
                     // try to make the ROM
-                    RomGenerator.initGeneration(txtInputROM.Text, txtOutputROM.Text, txtSeed.Text, generatorsByRomType, commonSettings, settingsByRomType);
+                    var context = RomGenerator.Init(txtInputROM.Text, txtSeed.Text,
+                        generatorsByRomType, commonSettings, settingsByRomType);
+                    RomGenerator.Run(txtOutputROM.Text, txtSeed.Text,
+                        generatorsByRomType, commonSettings, settingsByRomType, context);
                     MessageBox.Show("Done!");
                 }
                 catch (Exception e)

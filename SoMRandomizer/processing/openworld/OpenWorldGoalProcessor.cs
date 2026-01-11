@@ -22,7 +22,7 @@ namespace SoMRandomizer.processing.openworld
             return "Open world goal processing";
         }
 
-        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        public override void prepare(byte[] origRom, string seed, RandoSettings settings, RandoContext context)
         {
             bool fastManaFort = true;
             string goal = "";
@@ -57,6 +57,11 @@ namespace SoMRandomizer.processing.openworld
             // publish some convenience values for other hacks
             context.workingData.setBool(MANA_FORT_ACCESSIBLE_INDICATOR, fastManaFort);
             context.workingData.set(GOAL_SHORT_NAME, goal);
+        }
+
+        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        {
+            // nothing to do
             return true;
         }
     }

@@ -144,7 +144,10 @@ namespace SoMRandomizer.gui
                     // note there are no checks here for whether the dstRom exists - it will overwrite
                     try
                     {
-                        RomGenerator.initGeneration(cmdArgsProcessed["srcRom"], cmdArgsProcessed["dstRom"], cmdArgsProcessed["seed"], generatorsByRomType, commonSettings, settingsByRomType);
+                        var context = RomGenerator.Init(cmdArgsProcessed["srcRom"], cmdArgsProcessed["seed"],
+                            generatorsByRomType, commonSettings, settingsByRomType);
+                        RomGenerator.Run(cmdArgsProcessed["dstRom"], cmdArgsProcessed["seed"],
+                            generatorsByRomType, commonSettings, settingsByRomType, context);
                         Console.WriteLine("done!");
                     }
                     catch (Exception e)

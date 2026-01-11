@@ -28,13 +28,13 @@ namespace SoMRandomizer.processing.openworld
             // randomize spell orb elements and publish them to the context
             addModeSpecificHack(new ElementSwaps());
             // randomize bosses
-            addModeSpecificHack(new BossSwaps());
+            addModeSpecificHack(new BossSwaps()); // TODO: fixme: split into prepare and process to retain RNG
             // should be after BossSwaps since that sets the name of mech rider to mech rider 1/2/3
             addModeSpecificHack(new OpenWorldSillyEnemyNamePicker());
             // determine number of seeds for MTR and publish to the context
             addModeSpecificHack(new OpenWorldMtrSeedNumSelection());
             // swap/randomize enemies
-            addModeSpecificHack(new EnemySwaps());
+            addModeSpecificHack(new EnemySwaps()); // TODO: fixme: split into prepare and process to retain RNG
             // modify music to 0 volume - this allows no-music but with vanilla loadtimes
             addModeSpecificHack(new CustomMusic());
             // some minor world map fixes
@@ -97,6 +97,14 @@ namespace SoMRandomizer.processing.openworld
             // this needs to be the LAST thing since it's printing the state of our rng
             addModeSpecificHack(new TitleMenuSeedHashDisplay());
         }
+
+        protected override void prepare(byte[] origRom, string seed, RandoSettings settings, RandoContext context)
+        {
+            // extract plando string into individual properties for other hacks
+            PlandoUtils.processPlandoSetting(settings, context);
+            prepareHacks(origRom, seed, settings, context);
+        }
+
         protected override void generate(byte[] origRom, byte[] outRom, String seed, RandoSettings settings, RandoContext context)
         {
             string romMarker = "open world v" + settings.get(CommonSettings.PROPERTYNAME_VERSION);
@@ -105,8 +113,6 @@ namespace SoMRandomizer.processing.openworld
                 outRom[context.workingOffset++] = (byte)c;
             }
             outRom[context.workingOffset++] = 0;
-            // extract plando string into individual properties for other hacks
-            PlandoUtils.processPlandoSetting(settings, context);
             applyHacks(origRom, outRom, seed, settings, context);
         }
     }

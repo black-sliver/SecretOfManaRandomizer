@@ -19,7 +19,7 @@ namespace SoMRandomizer.processing.openworld
             return "MTR seed selection";
         }
 
-        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        public override void prepare(byte[] origRom, string seed, RandoSettings settings, RandoContext context)
         {
             Random r = context.randomFunctional;
             // mana seeds required for MTR goal
@@ -52,6 +52,11 @@ namespace SoMRandomizer.processing.openworld
             Logging.log("Seeds required for mana tree = " + manaSeedsRequired, "spoiler");
             // set on context for other hacks to use
             context.workingData.setInt(MANA_SEEDS_REQUIRED, manaSeedsRequired);
+        }
+
+        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        {
+            // Nothing to do.
             return true;
         }
     }

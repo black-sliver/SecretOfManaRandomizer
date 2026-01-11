@@ -3,6 +3,7 @@ using SoMRandomizer.logging;
 using SoMRandomizer.processing.common;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using static SoMRandomizer.processing.openworld.PlandoProperties;
 using static SoMRandomizer.processing.openworld.randomization.OpenWorldSimulator;
 
@@ -15,16 +16,25 @@ namespace SoMRandomizer.processing.openworld.randomization
     /// <remarks>Author: Moppleton</remarks>
     public class OpenWorldRandomizer : RandoProcessor
     {
+        public List<PrizeLocation> allLocations = null;
+        public List<PrizeItem> allPrizes = null;
+
         protected override string getName()
         {
             return "Open world randomizations";
         }
 
-        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        public override void prepare(byte[] origRom, string seed, RandoSettings settings, RandoContext context)
         {
             StartingWeaponRandomizer.setStartingWeapons(settings, context);
-            List<PrizeLocation> allLocations = OpenWorldLocations.getForSelectedOptions(settings, context);
-            List<PrizeItem> allPrizes = OpenWorldPrizes.getForSelectedOptions(settings, context, allLocations);
+            allLocations = OpenWorldLocations.getForSelectedOptions(settings, context);
+            allPrizes = OpenWorldPrizes.getForSelectedOptions(settings, context, allLocations);
+        }
+
+        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        {
+            Debug.Assert(allLocations != null && allPrizes != null, "not prepared");
+
             string complexity = settings.get(OpenWorldSettings.PROPERTYNAME_COMPLEXITY); // easy, dontcare, hard
             // number of seeds to make for easy/hard, and take the best/worst one
             int maxIters = 1000;
@@ -125,14 +135,20 @@ namespace SoMRandomizer.processing.openworld.randomization
                 // no attempt to randomize worked. fail out
                 throw new Exception("Open world generation failed!");
             }
-            // injection into events
-            OpenWorldResultInjector.injectRandomization(outRom, finalRandomization, settings, context);
-            // hints
-            OpenWorldHints.addHints(settings, context, finalRandomization, finalResult);
-            // spoiler log
-            OpenWorldSpoilers.logOpenWorldSpoilers(finalRandomization, finalResult, context);
-            Logging.log("Open world generation finished!");
+            WriteResult(outRom, finalRandomization, finalResult, settings, context);
             return true;
+        }
+
+        public void WriteResult(byte[] outRom, Dictionary<PrizeLocation, PrizeItem> placements, SimResult result,
+            RandoSettings settings, RandoContext context)
+        {
+            // injection into events
+            OpenWorldResultInjector.injectRandomization(outRom, placements, settings, context);
+            // hints
+            OpenWorldHints.addHints(settings, context, placements, result);
+            // spoiler log
+            OpenWorldSpoilers.logOpenWorldSpoilers(placements, result, context);
+            Logging.log(getName() + ": written!");
         }
 
         private SimResult attemptRando(List<PrizeLocation> allLocations, List<PrizeItem> allPrizes, RandoSettings settings, RandoContext context, Dictionary<PrizeLocation, PrizeItem> placedPrizes, bool allowBypass)

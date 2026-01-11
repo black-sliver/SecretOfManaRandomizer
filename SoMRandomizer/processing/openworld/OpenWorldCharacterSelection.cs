@@ -31,7 +31,8 @@ namespace SoMRandomizer.processing.openworld
             return "Open world character selection";
         }
 
-        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        public override void prepare(byte[] origRom, string seed, RandoSettings settings,
+            RandoContext context)
         {
             Random r = context.randomFunctional;
             StringValueSettings working = context.workingData;
@@ -168,16 +169,19 @@ namespace SoMRandomizer.processing.openworld
                     boyExists = false;
                     startWithBoy = false;
                 }
+
                 if (nonExistent.Contains("Girl"))
                 {
                     girlExists = false;
                     startWithGirl = false;
                 }
+
                 if (nonExistent.Contains("Sprite"))
                 {
                     spriteExists = false;
                     startWithSprite = false;
                 }
+
                 if (nonExistent.Contains("Boy") && startingChar == "boy")
                 {
                     // change starting char
@@ -195,9 +199,11 @@ namespace SoMRandomizer.processing.openworld
                     }
                     else
                     {
-                        throw new Exception("Plando - no characters exist! Couldn't reassign boy as starting character.");
+                        throw new Exception(
+                            "Plando - no characters exist! Couldn't reassign boy as starting character.");
                     }
                 }
+
                 if (nonExistent.Contains("Girl") && startingChar == "girl")
                 {
                     // change starting char
@@ -215,9 +221,11 @@ namespace SoMRandomizer.processing.openworld
                     }
                     else
                     {
-                        throw new Exception("Plando - no characters exist! Couldn't reassign girl as starting character.");
+                        throw new Exception(
+                            "Plando - no characters exist! Couldn't reassign girl as starting character.");
                     }
                 }
+
                 if (nonExistent.Contains("Sprite") && startingChar == "sprite")
                 {
                     // change starting char
@@ -235,19 +243,27 @@ namespace SoMRandomizer.processing.openworld
                     }
                     else
                     {
-                        throw new Exception("Plando - no characters exist! Couldn't reassign sprite as starting character.");
+                        throw new Exception(
+                            "Plando - no characters exist! Couldn't reassign sprite as starting character.");
                     }
                 }
             }
+
             if (!boyExists && !girlExists && !spriteExists)
             {
                 throw new Exception("Plando - no characters exist!");
             }
 
             Logging.log("Starting char = " + startingChar, "spoiler");
-            Logging.log("Start with boy? " + startWithBoy + " // find boy? " + boyInLogic + " // boy exists? " + boyExists, "spoiler");
-            Logging.log("Start with girl? " + startWithGirl + " // find girl? " + girlInLogic + " // girl exists? " + girlExists, "spoiler");
-            Logging.log("Start with sprite? " + startWithSprite + " // find sprite? " + spriteInLogic + " // sprite exists? " + spriteExists, "spoiler");
+            Logging.log(
+                "Start with boy? " + startWithBoy + " // find boy? " + boyInLogic + " // boy exists? " + boyExists,
+                "spoiler");
+            Logging.log(
+                "Start with girl? " + startWithGirl + " // find girl? " + girlInLogic + " // girl exists? " +
+                girlExists, "spoiler");
+            Logging.log(
+                "Start with sprite? " + startWithSprite + " // find sprite? " + spriteInLogic + " // sprite exists? " +
+                spriteExists, "spoiler");
 
             // output to working data for use by other hacks (including the one below)
             working.set(STARTING_CHARACTER, startingChar);
@@ -262,7 +278,11 @@ namespace SoMRandomizer.processing.openworld
             working.setBool(SPRITE_EXISTS, spriteExists);
             working.setBool(START_SOLO, startSolo);
             working.setBool(FOUND_CHARS_GET_YOUR_LEVEL, foundCharactersGetYourLevel);
+        }
 
+        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        {
+            var startingChar = context.workingData.get(STARTING_CHARACTER);
             if (startingChar != "boy")
             {
                 new StartingCharacterRandomizer().add(origRom, outRom, seed, settings, context);

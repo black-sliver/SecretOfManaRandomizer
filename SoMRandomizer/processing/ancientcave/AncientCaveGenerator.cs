@@ -63,6 +63,12 @@ namespace SoMRandomizer.processing.ancientcave
         }
 
         public static Dictionary<string, int> LENGTH_CONVERSIONS = new Dictionary<string, int> { { "short", 8 }, { "medium", 16 }, { "long", 24 }, };
+
+        protected override void prepare(byte[] origRom, string seed, RandoSettings settings, RandoContext context)
+        {
+            prepareHacks(origRom, seed, settings, context);
+        }
+
         protected override void generate(byte[] origRom, byte[] outRom, String seed, RandoSettings settings, RandoContext context)
         {
             applyHacks(origRom, outRom, seed, settings, context);

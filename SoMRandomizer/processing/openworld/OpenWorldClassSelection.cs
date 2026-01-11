@@ -27,7 +27,7 @@ namespace SoMRandomizer.processing.openworld
             return "Open world class selection";
         }
 
-        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        public override void prepare(byte[] origRom, string seed, RandoSettings settings, RandoContext context)
         {
             Random r = context.randomFunctional;
             StringValueSettings working = context.workingData;
@@ -128,6 +128,10 @@ namespace SoMRandomizer.processing.openworld
             working.setBool(GIRL_MAGIC_EXISTS, girlMagicExists);
             working.setBool(SPRITE_MAGIC_EXISTS, spriteMagicExists);
             working.setBool(ANY_MAGIC_EXISTS, girlMagicExists || spriteMagicExists);
+        }
+
+        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        {
             return true;
         }
     }

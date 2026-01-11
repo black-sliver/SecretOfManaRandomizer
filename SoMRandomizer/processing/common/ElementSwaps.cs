@@ -58,12 +58,12 @@ namespace SoMRandomizer.processing
             return elementValuesByMapNum;
         }
 
-        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        public override void prepare(byte[] origRom, string seed, RandoSettings settings, RandoContext context)
         {
             string randoMode = settings.get(CommonSettings.PROPERTYNAME_MODE);
             if (randoMode == VanillaRandoSettings.MODE_KEY)
             {
-                List<int> elementList = process(outRom, context.randomFunctional, !settings.getBool(VanillaRandoSettings.PROPERTYNAME_DIALOGUE_CUTS));
+                List<int> elementList = prepareVanilla(context.randomFunctional);
                 Logging.log("Element randomization:", "spoiler");
                 for(int i=0; i < 8; i++)
                 {
@@ -75,10 +75,11 @@ namespace SoMRandomizer.processing
             {
                 bool girlMagicExists = context.workingData.getBool(OpenWorldClassSelection.GIRL_MAGIC_EXISTS);
                 bool spriteMagicExists = context.workingData.getBool(OpenWorldClassSelection.SPRITE_MAGIC_EXISTS);
-                Dictionary<int, byte> crystalOrbElementMap = new Dictionary<int, byte>();
                 bool randomizeGrandPalace = settings.getBool(OpenWorldSettings.PROPERTYNAME_RANDOMIZE_GRANDPALACE_ELEMENTS);
                 bool flammieDrumInLogic = settings.getBool(OpenWorldSettings.PROPERTYNAME_FLAMMIE_DRUM_IN_LOGIC);
-                processOpenWorld(outRom, context.randomFunctional, crystalOrbElementMap, context.replacementEvents, girlMagicExists, spriteMagicExists, randomizeGrandPalace, context.plandoSettings, flammieDrumInLogic);
+                Dictionary<int, byte> crystalOrbElementMap = new Dictionary<int, byte>();
+                prepareOpenWorld(context.randomFunctional, crystalOrbElementMap, girlMagicExists, spriteMagicExists,
+                    randomizeGrandPalace, context.plandoSettings, flammieDrumInLogic);
                 foreach(int mapNum in crystalOrbElementMap.Keys)
                 {
                     context.workingData.setInt(ORBELEMENT_PREFIX + mapNum, crystalOrbElementMap[mapNum]);
@@ -87,13 +88,58 @@ namespace SoMRandomizer.processing
             else
             {
                 Logging.log("Unsupported mode for element randomizer");
+            }
+        }
+
+        protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
+        {
+            string randoMode = settings.get(CommonSettings.PROPERTYNAME_MODE);
+            if (randoMode == VanillaRandoSettings.MODE_KEY)
+            {
+                var elementList = context.workingData.getIntArray(VANILLARANDO_ELEMENTLIST);
+                var dialogCuts = settings.getBool(VanillaRandoSettings.PROPERTYNAME_DIALOGUE_CUTS);
+                processVanilla(outRom, elementList, !dialogCuts);
+            }
+            else if (randoMode == OpenWorldSettings.MODE_KEY)
+            {
+                bool girlMagicExists = context.workingData.getBool(OpenWorldClassSelection.GIRL_MAGIC_EXISTS);
+                bool spriteMagicExists = context.workingData.getBool(OpenWorldClassSelection.SPRITE_MAGIC_EXISTS);
+                bool randomizeGrandPalace = settings.getBool(OpenWorldSettings.PROPERTYNAME_RANDOMIZE_GRANDPALACE_ELEMENTS);
+                bool flammieDrumInLogic = settings.getBool(OpenWorldSettings.PROPERTYNAME_FLAMMIE_DRUM_IN_LOGIC);
+                Dictionary<int, byte> crystalOrbElementMap = getCrystalOrbElementMap(context);
+                processOpenWorld(outRom, crystalOrbElementMap, context.replacementEvents,
+                    girlMagicExists, spriteMagicExists, randomizeGrandPalace, flammieDrumInLogic);
+            }
+            else
+            {
+                Logging.log("Unsupported mode for element randomizer");
                 return false;
             }
+
             return true;
         }
 
         // for vanilla rando - randomly swap vanilla element locations & associated orbs
-        public List<int> process(byte[] rom, Random r, bool modifyExistingEvents)
+        public List<int> prepareVanilla(Random r)
+        {
+            List<int> originalEles = new List<int>();
+            for(int i=0; i < 8; i++)
+            {
+                originalEles.Add(i);
+            }
+
+            List<int> newEles = new List<int>();
+            while(originalEles.Count > 0)
+            {
+                int id = r.Next() % originalEles.Count;
+                newEles.Add(originalEles[id]);
+                originalEles.RemoveAt(id);
+            }
+
+            return newEles;
+        }
+
+        public void processVanilla(byte[] rom, int[] newEles, bool modifyExistingEvents)
         {
             // locations of spell NPCs to randomize
             Dictionary<int, List<int>> mapNums = new Dictionary<int, List<int>>();
@@ -123,20 +169,6 @@ namespace SoMRandomizer.processing
             // dryad
             mapNums[7] = new int[] { MAPNUM_DRYADSEED }.ToList();
             objNums[7] = new int[] { 2 }.ToList();
-
-            List<int> originalEles = new List<int>();
-            for(int i=0; i < 8; i++)
-            {
-                originalEles.Add(i);
-            }
-
-            List<int> newEles = new List<int>();
-            while(originalEles.Count > 0)
-            {
-                int id = r.Next() % originalEles.Count;
-                newEles.Add(originalEles[id]);
-                originalEles.RemoveAt(id);
-            }
 
             // change npcs
             // map 278 undine obj 0 npc 0x11 (+0x80)
@@ -253,13 +285,13 @@ namespace SoMRandomizer.processing
                     }
                 }
             }
-
-            return newEles;
         }
 
         // for open world, set the orb elements to whatever was randomized for them.
         // don't swap spell rewards to match like in vanilla rando; randomized prize locations & logic will determine a new path through them
-        public void processOpenWorld(byte[] rom, Random r, Dictionary<int, byte> crystalOrbColorMap, Dictionary<int, List<byte>> replacementEvents, bool girlExists, bool spriteExists, bool randomizeGrandPalace, Dictionary<string, List<string>> plando, bool flammieDrumInLogic)
+        public void prepareOpenWorld(Random r, Dictionary<int, byte> crystalOrbColorMap,
+            bool girlExists, bool spriteExists,
+            bool randomizeGrandPalace, Dictionary<string, List<string>> plando, bool flammieDrumInLogic)
         {
             // note that lumina and sylphid seem like they've been swapped in vanilla and no one ever noticed?
             // 358 gnome = 81
@@ -403,6 +435,49 @@ namespace SoMRandomizer.processing
 
             if (randomizeGrandPalace)
             {
+                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_1_ELEMENT))
+                {
+                    crystalOrbColorMap[ORBMAP_GRANDPALACE1] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
+                }
+
+                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_2_ELEMENT))
+                {
+                    crystalOrbColorMap[ORBMAP_GRANDPALACE2] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
+                }
+
+                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_3_ELEMENT))
+                {
+                    crystalOrbColorMap[ORBMAP_GRANDPALACE3] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
+                }
+
+                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_4_ELEMENT))
+                {
+                    crystalOrbColorMap[ORBMAP_GRANDPALACE4] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
+                }
+
+                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_5_ELEMENT))
+                {
+                    crystalOrbColorMap[ORBMAP_GRANDPALACE5] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
+                }
+
+                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_6_ELEMENT))
+                {
+                    crystalOrbColorMap[ORBMAP_GRANDPALACE6] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
+                }
+
+                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_7_ELEMENT))
+                {
+                    crystalOrbColorMap[ORBMAP_GRANDPALACE7] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
+                }
+            }
+        }
+
+        public void processOpenWorld(byte[] rom, Dictionary<int, byte> crystalOrbColorMap,
+            Dictionary<int, List<byte>> replacementEvents, bool girlExists, bool spriteExists,
+            bool randomizeGrandPalace, bool flammieDrumInLogic)
+        {
+            if (randomizeGrandPalace)
+            {
                 Dictionary<byte, byte> palSets = new Dictionary<byte, byte>();
                 palSets[0x81] = 89;
                 palSets[0x82] = 88;
@@ -413,47 +488,13 @@ namespace SoMRandomizer.processing
                 palSets[0x87] = 95;
                 palSets[0x88] = 97;
                 palSets[0xFF] = 0xFF;
-                
-                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_1_ELEMENT))
-                {
-                    crystalOrbColorMap[ORBMAP_GRANDPALACE1] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
-                }
+
                 rom[0x8DD19] = (byte)(0x80 + palSets[crystalOrbColorMap[ORBMAP_GRANDPALACE1]]);
-
-                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_2_ELEMENT))
-                {
-                    crystalOrbColorMap[ORBMAP_GRANDPALACE2] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
-                }
                 rom[0x8DD41] = (byte)(0x80 + palSets[crystalOrbColorMap[ORBMAP_GRANDPALACE2]]);
-
-                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_3_ELEMENT))
-                {
-                    crystalOrbColorMap[ORBMAP_GRANDPALACE3] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
-                }
                 rom[0x8DD69] = (byte)(0x80 + palSets[crystalOrbColorMap[ORBMAP_GRANDPALACE3]]);
-
-                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_4_ELEMENT))
-                {
-                    crystalOrbColorMap[ORBMAP_GRANDPALACE4] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
-                }
                 rom[0x8DD91] = (byte)(0x80 + palSets[crystalOrbColorMap[ORBMAP_GRANDPALACE4]]);
-
-                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_5_ELEMENT))
-                {
-                    crystalOrbColorMap[ORBMAP_GRANDPALACE5] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
-                }
                 rom[0x8DDB9] = (byte)(0x80 + palSets[crystalOrbColorMap[ORBMAP_GRANDPALACE5]]);
-
-                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_6_ELEMENT))
-                {
-                    crystalOrbColorMap[ORBMAP_GRANDPALACE6] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
-                }
                 rom[0x8DDE1] = (byte)(0x80 + palSets[crystalOrbColorMap[ORBMAP_GRANDPALACE6]]);
-
-                if (!plando.ContainsKey(KEY_GRAND_PALACE_ORB_7_ELEMENT))
-                {
-                    crystalOrbColorMap[ORBMAP_GRANDPALACE7] = orbElementsAvailable[(r.Next() % orbElementsAvailable.Count)];
-                }
                 rom[0x8DE09] = (byte)(0x80 + palSets[crystalOrbColorMap[ORBMAP_GRANDPALACE7]]);
             }
 
