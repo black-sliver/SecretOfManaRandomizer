@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace SoMRandomizer.processing.common
 {
@@ -575,6 +576,11 @@ namespace SoMRandomizer.processing.common
             {
                 modeSpecificHack.add(origRom, outRom, seed, settings, context);
             }
+        }
+
+        protected RandoProcessor GetModeSpecificHack(Type type)
+        {
+            return modeSpecificHacks.FirstOrDefault(hack => hack.GetType() == type);
         }
     }
 }

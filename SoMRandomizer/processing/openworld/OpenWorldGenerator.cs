@@ -8,6 +8,7 @@ using SoMRandomizer.processing.hacks.openworld;
 using SoMRandomizer.processing.openworld.events;
 using SoMRandomizer.processing.openworld.randomization;
 using System;
+using System.Collections.Generic;
 
 namespace SoMRandomizer.processing.openworld
 {
@@ -114,6 +115,18 @@ namespace SoMRandomizer.processing.openworld
             }
             outRom[context.workingOffset++] = 0;
             applyHacks(origRom, outRom, seed, settings, context);
+        }
+
+        public List<PrizeLocation> GetLocations()
+        {
+            var openWorldRandomizer = (OpenWorldRandomizer)GetModeSpecificHack(typeof(OpenWorldRandomizer));
+            return openWorldRandomizer.allLocations;
+        }
+
+        public List<PrizeItem> GetItems()
+        {
+            var openWorldRandomizer = (OpenWorldRandomizer)GetModeSpecificHack(typeof(OpenWorldRandomizer));
+            return openWorldRandomizer.allPrizes;
         }
     }
 }
