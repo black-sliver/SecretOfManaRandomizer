@@ -931,6 +931,8 @@ namespace SoMRandomizer.processing.openworld.events
                 // use FC - total mana power
                 // 0 -> required seeds minus 1 - jump out to 0x4d7 (above), which tells you to bring N seeds
                 newEvent4d8.Logic(EventFlags.TOTAL_MANA_POWER_FLAG, 0, (byte)(manaSeedsRequired - 1), EventScript.GetJumpCmd(0x4D7));
+                // set seed count to 15 to mark MTR goal as completed for multiworld
+                newEvent4d8.SetFlag(EventFlags.TOTAL_MANA_POWER_FLAG, 15);
                 newEvent4d8.AddDialogueBox("Neat\nyou did the thing");
                 newEvent4d8.Jump(0x42F); // credits
                 newEvent4d8.End();

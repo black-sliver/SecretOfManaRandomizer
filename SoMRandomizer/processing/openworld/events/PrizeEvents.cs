@@ -2,6 +2,7 @@
 using SoMRandomizer.processing.common;
 using SoMRandomizer.processing.common.structure;
 using System.Collections.Generic;
+using SoMRandomizer.processing.hacks.openworld;
 
 namespace SoMRandomizer.processing.openworld.events
 {
@@ -70,6 +71,7 @@ namespace SoMRandomizer.processing.openworld.events
         protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
         {
             bool restrictiveLogic = settings.get(OpenWorldSettings.PROPERTYNAME_LOGIC_MODE) == "restrictive";
+            bool multiworld = settings.getBool(OpenWorldSettings.PROPERTYNAME_MULTIWORLD);
             string goal = context.workingData.get(OpenWorldGoalProcessor.GOAL_SHORT_NAME);
             bool fastManaFort = context.workingData.getBool(OpenWorldGoalProcessor.MANA_FORT_ACCESSIBLE_INDICATOR);
             bool flammieDrumInLogic = settings.getBool(OpenWorldSettings.PROPERTYNAME_FLAMMIE_DRUM_IN_LOGIC);
@@ -77,6 +79,10 @@ namespace SoMRandomizer.processing.openworld.events
             EventScript newEvent396 = new EventScript();
             context.replacementEvents[0x396] = newEvent396;
             // no dialogue-open; assume already open
+            if (multiworld)
+            {
+                newEvent396.OpenDialogueBox();
+            }
             newEvent396.AddDialogue("Already got this!");
             newEvent396.CloseDialogueBox();
             newEvent396.End();

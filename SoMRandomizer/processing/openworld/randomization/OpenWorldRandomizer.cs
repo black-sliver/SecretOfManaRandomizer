@@ -34,6 +34,11 @@ namespace SoMRandomizer.processing.openworld.randomization
         protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings, RandoContext context)
         {
             Debug.Assert(allLocations != null && allPrizes != null, "not prepared");
+            if (settings.getBool(OpenWorldSettings.PROPERTYNAME_MULTIWORLD))
+            {
+                Logging.log(getName() + ": Skipping fill");
+                return true;
+            }
 
             string complexity = settings.get(OpenWorldSettings.PROPERTYNAME_COMPLEXITY); // easy, dontcare, hard
             // number of seeds to make for easy/hard, and take the best/worst one

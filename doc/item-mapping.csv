@@ -1,0 +1,40 @@
+ #,ItemId, Name, Flag (TODO)
+ 0,ItemId.Nothing, OpenWorldPrizeNames.NOTHING
+ 1,ItemId.StarterWeaponAlt, "starter weapon (alt)"
+ 2,ItemId.StarterWeaponMain, "starter weapon (main)"
+ 3,Reserved
+4+,IdMap.WeaponOrb[weaponId], SomVanillaValues.weaponByteToName(weaponId) + " orb"
+12,ItemId.Boy, OpenWorldPrizeNames.BOY
+13,ItemId.Girl, OpenWorldPrizeNames.GIRL
+14,ItemId.Sprite, OpenWorldPrizeNames.SPRITE
+15,ItemId.SeaHareTail, OpenWorldPrizeNames.SEA_HARE_TAIL
+16,ItemId.GoldTowerKey, OpenWorldPrizeNames.GOLD_TOWER_KEY
+17,ItemId.MidgeMallet, OpenWorldPrizeNames.MIDGE_MALLET
+18,ItemId.MoogleBelt, OpenWorldPrizeNames.MOOGLE_BELT
+19,ItemId.FlammieDrum, OpenWorldPrizeNames.FLAMMIE_DRUM
+20,Reserved (Magic Rope)
+21,ItemId.WaterSeed, OpenWorldPrizeNames.WATER_SEED
+22,ItemId.EarthSeed, OpenWorldPrizeNames.EARTH_SEED
+23,ItemId.WindSeed, OpenWorldPrizeNames.WIND_SEED
+24,ItemId.FireSeed, OpenWorldPrizeNames.FIRE_SEED
+25,ItemId.LightSeed, OpenWorldPrizeNames.LIGHT_SEED
+26,ItemId.DarkSeed, OpenWorldPrizeNames.DARK_SEED
+27,ItemId.MoonSeed, OpenWorldPrizeNames.MOON_SEED
+28,ItemId.DryadSeed, OpenWorldPrizeNames.DRYAD_SEED
+29,ItemId.UndineSpells, OpenWorldPrizeNames.UNDINE_SPELLS
+30,ItemId.GnomeSpells, OpenWorldPrizeNames.GNOME_SPELLS
+31,ItemId.SylphidSpells, OpenWorldPrizeNames.SYLPHID_SPELLS
+32,ItemId.SalamandoSpells, OpenWorldPrizeNames.SALAMANDO_SPELLS
+33,ItemId.LuminaSpells, OpenWorldPrizeNames.LUMINA_SPELLS
+34,ItemId.ShadeSpells, OpenWorldPrizeNames.SHADE_SPELLS
+35,ItemId.LunaSpells, OpenWorldPrizeNames.LUNA_SPELLS
+36,ItemId.DryadSpells, OpenWorldPrizeNames.DRYAD_SPELLS
+37,ItemId.Glove, OpenWorldPrizeNames.GLOVE
+38,ItemId.Sword, OpenWorldPrizeNames.SWORD
+39,ItemId.Axe, OpenWorldPrizeNames.AXE
+40,ItemId.Spear, OpenWorldPrizeNames.SPEAR
+41,ItemId.Whip, OpenWorldPrizeNames.WHIP
+42,ItemId.Bow, OpenWorldPrizeNames.BOW
+43,ItemId.Boomerang, OpenWorldPrizeNames.BOOMERANG
+44,ItemId.Javelin, OpenWorldPrizeNames.JAVELIN
+50,ItemId.Gp0 + numGoldEvents, "GP " + numGoldEvents + ": " + goldAmount

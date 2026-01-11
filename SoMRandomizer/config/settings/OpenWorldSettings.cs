@@ -73,6 +73,8 @@ namespace SoMRandomizer.config.settings
 
         public const string PROPERTYVALUE_OOPSALL_RANDOM = "random";
 
+        public const string PROPERTYNAME_MULTIWORLD = "opMultiWorld";
+
         public OpenWorldSettings(CommonSettings commonSettings) : base(commonSettings)
         {
             // default open world settings

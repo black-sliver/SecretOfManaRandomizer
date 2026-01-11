@@ -1,0 +1,4 @@
+Name,Flag,Flag#,Value,Remarks
+MTR,EventFlags.EventFlags.PURELAND_PROGRESS_FLAG,0x46,9,Needs code change in 0x4d8 or credits (0x42f)
+XMAS,EventFlags.OPEN_WORLD_CHRISTMAS_PROGRESS,0x6F,15,Needs code change before jump to credits
+Manabeast,EventFlags.MANAFORT_SWITCHES_FLAG_1?,0x4E,9,""

@@ -20,6 +20,43 @@ namespace SoMRandomizer.processing.openworld.randomization
             ItemId.JavelinOrb,
         };
 
+        /// <summary>
+        /// Convert weapon number (0..7) to weapon item id.
+        /// </summary>
+        public static readonly ItemId[] Weapons =
+        {
+            ItemId.Glove,
+            ItemId.Sword,
+            ItemId.Axe,
+            ItemId.Spear,
+            ItemId.Whip,
+            ItemId.Bow,
+            ItemId.Boomerang,
+            ItemId.Javelin,
+        };
+
+        /// <summary>
+        /// Convert character id (0..2) to character item id.
+        /// </summary>
+        public static readonly ItemId[] Characters =
+        {
+            ItemId.Boy,
+            ItemId.Girl,
+            ItemId.Sprite,
+        };
+
+        public static readonly ItemId[] Seeds =
+        {
+            ItemId.WaterSeed,
+            ItemId.EarthSeed,
+            ItemId.WindSeed,
+            ItemId.FireSeed,
+            ItemId.LightSeed,
+            ItemId.DarkSeed,
+            ItemId.MoonSeed,
+            ItemId.DryadSeed,
+        };
+
         public static readonly Dictionary<ItemId, string> ItemNames = new Dictionary<ItemId, string>
         {
             { ItemId.Nothing, OpenWorldPrizeNames.NOTHING },

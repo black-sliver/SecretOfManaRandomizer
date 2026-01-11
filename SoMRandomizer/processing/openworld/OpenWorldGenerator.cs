@@ -59,7 +59,10 @@ namespace SoMRandomizer.processing.openworld
             // enemy scaling for open world
             addModeSpecificHack(new EnemiesAtYourLevel());
             // do the main randomizations for open world
-            addModeSpecificHack(new OpenWorldRandomizer());
+            var openWorldRandomizer = new OpenWorldRandomizer();
+            addModeSpecificHack(openWorldRandomizer);
+            // apply hacks required for multiworld -- TODO: split into prepare and gen
+            addModeSpecificHack(new MultiWorld(openWorldRandomizer));
             // fix issue where you get stuck on the light fixture in the minotaur room sometimes
             addModeSpecificHack(new FirePalaceDoorFix());
             // automatically save on door transitions

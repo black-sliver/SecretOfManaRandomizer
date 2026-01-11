@@ -1542,9 +1542,9 @@ namespace SoMRandomizer.processing.hacks.openworld
             // RTL
             outRom[context.workingOffset++] = 0x6B;
 
-            // CPY #CF88 - event flag 0x88
+            // CPY #CF8C - event flag 0x8c
             outRom[context.workingOffset++] = 0xC0;
-            outRom[context.workingOffset++] = 0x88;
+            outRom[context.workingOffset++] = 0x8C;
             outRom[context.workingOffset++] = 0xCF;
             // BLT/BCC - check lower bounds
             outRom[context.workingOffset++] = 0x90;
@@ -1600,9 +1600,9 @@ namespace SoMRandomizer.processing.hacks.openworld
             // RTL
             outRom[context.workingOffset++] = 0x6B;
 
-            // CPY #CF88 - event flag 0x88
+            // CPY #CF8C - event flag 0x8C
             outRom[context.workingOffset++] = 0xC0;
-            outRom[context.workingOffset++] = 0x88;
+            outRom[context.workingOffset++] = 0x8C;
             outRom[context.workingOffset++] = 0xCF;
             // BLT/BCC - upper bound - don't shift
             outRom[context.workingOffset++] = 0x90;

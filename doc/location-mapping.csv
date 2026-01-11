@@ -1,0 +1,97 @@
+ #,LocationId, Name, Flag, Flag#, Value (>=), Remarks, Event
+ 1,LocationId.StarterWeaponMain, "starter weapon (main)"
+ 2,LocationId.StarterWeaponAlt, "starter weapon (alt)"
+ 3,Reserved
+ 4,LocationId.MechRider3, "mech rider 3 (new item)",EventFlags.OPENWORLD_MANAFORT_ACCESSIBLE_FLAG,0x75,2,,0x4a4
+ 5,LocationId.Buffy, "buffy (new item)",EventFlags.MANAFORT_SWITCHES_FLAG_1,0x4E,2,,0x422
+ 6,LocationId.DreadSlime, "dread slime (new item)",EventFlags.MANAFORT_SWITCHES_FLAG_1,0x4E,4,,0x425
+ 7,LocationId.GnomeItem1, "gnome item 1 (spells)",EventFlags.EARTHPALACE_FLAG,0x18,7,,0x22e
+ 8,LocationId.GnomeItem2, "gnome item 2 (seed)",EventFlags.EARTHPALACE_FLAG,0x18,7,,0x22e
+ 9,LocationId.FireSeed, "fire seed",EventFlags.FIRE_PALACE_COMPLETION_FLAG,0x2C,4,added code,0x589
+10,LocationId.LunaItem1, "luna item 1 (spells)",EventFlags.LUNA_PALACE_FLAG,0x3b,3,added code,0x584
+11,LocationId.LunaItem2, "luna item 2 (seed)",EventFlags.LUNA_PALACE_FLAG,0x3b,3,^,0x584
+12,LocationId.Kakkara, "kakkara (moogle belt)",EventFlags.SEA_HARES_TAIL_FLAG,0x29,2,,0x2b2
+13,LocationId.LuminaSpells, "lumina spells",EventFlags.LUMINA_TOWER_PROGRESS_FLAG,0x37,8,added code,0x587
+14,LocationId.LuminaSeed, "lumina seed",EventFlags.LUMINA_TOWER_PROGRESS_FLAG,0x37,8,^,0x587
+15,LocationId.ChestNextToWhipChest, "chest next to whip chest",EventFlags.NEXT_TO_WHIP_CHEST_VISIBILITY_FLAG,0xD8,2,,0x688
+16,LocationId.ShadePalaceGloveOrbChest, "shade palace glove orb chest",,0x04,1,,0x672
+17,LocationId.SunkenContinentSwordOrbChest, "sunken continent sword orb chest",,0x05,1,,0x675
+18,LocationId.LuminaTowerAxeOrbChest, "lumina tower axe orb chest",,0x06,1,,0x677
+19,LocationId.FirePalaceAxeOrbChest, "fire palace axe orb chest",,0x07,1,,0x678
+20,LocationId.LuminaTowerSpearOrbChest, "lumina tower spear orb chest",,0x08,1,,0x67b
+21,LocationId.SunkenContinentBoomerangOrbChest, "sunken continent boomerang orb chest",,0x1F,1,,0x691
+22,LocationId.FirePalaceChest1, "fire palace chest 1",,0x23,1,,0x68a
+23,LocationId.FirePalaceChest2, "fire palace chest 2",,0x3d,1,,0x68b
+24,LocationId.Santa, "santa (new item)",EventFlags.ICE_PALACE_FLAG,0x26,4,,0x66d
+25,LocationId.ShadeSpells, "shade spells",EventFlags.SHADE_PALACE_PROGRESS_FLAG_1,0x38,7,added code,0x586
+26,LocationId.ShadeSeed, "shade seed",EventFlags.SHADE_PALACE_PROGRESS_FLAG_1,0x38,7,^,0x586
+27,LocationId.ThunderGigas, "thunder gigas (new item)",EventFlags.PURELAND_PROGRESS_FLAG,0x46,5,,0x5f5
+28,LocationId.RedDragon, "red dragon (new item)",EventFlags.PURELAND_PROGRESS_FLAG,0x46,4,,0x5f3
+29,LocationId.BlueDragon, "blue dragon (new item)",EventFlags.PURELAND_PROGRESS_FLAG,0x46,6,,0x5f7
+30,LocationId.ManaTree, "mana tree (new item)",EventFlags.PURELAND_PROGRESS_FLAG,0x46,8,7 would also work,0x5f8
+31,LocationId.MatangoFlammie, "matango flammie",EventFlags.MATANGO_PROGRESS_FLAG,0x24,8,,0x4e4
+32,LocationId.Jehk, "jehk",EventFlags.JEHK_CAVE_FLAG,0x3F,6,,0x4e5
+33,LocationId.Hydra, "hydra (new item)",EventFlags.LOST_CONTINENT_SWITCHES_FLAG_1,0x40,4,,0x59b
+34,LocationId.Kettlekin, "kettlekin (new item)",EventFlags.LOST_CONTINENT_KETTLEKIN_FLAG,0x47,3,why the F not same as above?,0x4ca
+35,LocationId.ShadePalaceChest, "shade palace chest",,0x3e,1,,0x68e
+36,LocationId.LukaItem1, "luka item 1 (spear)",EventFlags.WATER_PALACE_FLAG,0x11,11,,0x132
+37,LocationId.LukaItem2, "luka item 2 (undine seed)",EventFlags.WATER_PALACE_FLAG,0x11,11,,0x132
+38,LocationId.SylphidItem1, "sylphid item 1 (spells)",EventFlags.UPPERLAND_PROGRESS_FLAG,0x21,5,could be combined with ...,0x4e2
+39,LocationId.SylphidItem2, "sylphid item 2 (seed)",EventFlags.UPPERLAND_PROGRESS_FLAG,0x21,5,... spring beak,0x4e2
+40,LocationId.WhipChest, "whip chest",EventFlags.WHIP_CHEST_VISIBILITY_FLAG,0xD9,2,,0x689
+41,LocationId.MoogleVillageGloveOrbChest, "moogle village glove orb chest",,0x51,1,,0x670
+42,LocationId.IceCastleGloveOrbChest, "ice castle glove orb chest",,0x52,1,,0x671
+43,LocationId.PandoraSwordOrbChest, "pandora sword orb chest",,0x62,1,,0x673
+44,LocationId.NtRuinsSwordOrbChest, "northtown ruins sword orb chest",,0x62,1,,0x674
+45,LocationId.MoogleVillageAxeOrbChest, "moogle village axe orb chest",,0x64,1,,0x676
+46,LocationId.NtCastleAxeOrbChest, "northtown castle axe orb chest",,0x65,1,,0x679
+47,LocationId.NtRuinsSpearOrbChest, "northtown ruins spear orb chest",,0x66,1,,0x67a
+48,LocationId.PandoraSpearOrbChest, "pandora spear orb chest",,0x67,1,,0x67c
+49,LocationId.SantaSpearOrbChest, "santa spear orb chest",,0x69,1,,0x67d
+50,LocationId.KilroyWhipOrbChest, "kilroy whip orb chest",,0x6a,1,,0x68c
+51,LocationId.NtCastleWhipOrbChest, "northtown castle whip orb chest",,0x6b,1,,0x68f
+52,LocationId.NtRuinsBowOrbChest, "northtown ruins bow orb chest",,0x6c,1,,0x690
+53,LocationId.PotosChest, "potos chest",,0x6d,1,,0x680
+54,LocationId.PandoraChest1, "pandora chest 1",,0x6e,1,,0x683
+55,LocationId.PandoraChest2, "pandora chest 2",,0xA1,1,,0x684
+56,LocationId.PandoraChest3, "pandora chest 3",,0xA2,1,,0x685
+57,LocationId.PandoraChest4, "pandora chest 4",,0xA3,1,,0x686
+58,LocationId.MagicRopeChest, "magic rope chest",,0xD3,1,,0x687
+59,LocationId.NtCastleChest, "northtown castle chest",,0xD4,1,,0x68d
+60,LocationId.MatangoInnJavelinOrbChest, "matango inn javelin orb chest",,0xD5,1,,0x692
+61,LocationId.Watts, "watts (axe)",EventFlags.GAIAS_NAVEL_WATTS_FLAG,0x14,8,,0x1b0
+62,LocationId.UndineItem1, "undine item 1 (spells)",EventFlags.OPEN_WORLD_TONPOLE_FLAG,0xa0,2,added code,0x581
+63,LocationId.UndineItem2, "undine item 2 (javelin)",EventFlags.OPEN_WORLD_TONPOLE_FLAG,0xa0,2,^,0x581
+64,LocationId.Salamando, "salamando",EventFlags.SALAMANDO_STOVE_FLAG,0x27,5,"",0x38c
+65,LocationId.DryadSpells, "dryad spells",EventFlags.NORTHTOWN_PHANNA_FLAG,0x3A,3,added code,0x4b6
+66,LocationId.DryadSeed, "dryad seed",EventFlags.NORTHTOWN_PHANNA_FLAG,0x3A,3,^,0x4b6
+67,LocationId.Mara, "mara (tower key)",EventFlags.SOUTHTOWN_MARA_FLAG,0x30,2,added code,0x399
+68,LocationId.TurtleIsland, "turtle island (sea hare tail)",,0xD6,1,,0x2f9
+69,LocationId.DwarfElder, "dwarf elder (midge mallet)",,0xD0,1,,0x366
+70,LocationId.TropicalloSprite, "tropicallo (sprite)",EventFlags.GAIAS_NAVEL_SPRITE_FLAG,0x15,8,,0x1b9
+71,LocationId.TropicalloBow, "tropicallo (bow)",EventFlags.GAIAS_NAVEL_SPRITE_FLAG,0x15,8,,0x1b9
+72,LocationId.Girl, "girl",,0xD7,1,,0x188
+73,LocationId.Lighthouse, "lighthouse (new item)",,0xDA,1,,0xaa
+74,LocationId.Kilroy, "kilroy (new item)",EventFlags.KILROY_EVENT_FLAG,0x1B,5,or 4?,0x36a
+75,LocationId.MantisAnt, "mantis ant (new item)",EventFlags.POTOS_FLAG,0x10,12,,0x112
+76,LocationId.AxeBeak, "axe beak (new item)",EventFlags.PURELAND_PROGRESS_FLAG,0x46,3,,0x5f1
+77,LocationId.SnowDragon, "snow dragon (new item)",EventFlags.PURELAND_PROGRESS_FLAG,0x46,2,,0x5ef
+78,LocationId.DragonWorm, "dragon worm (new item)",EventFlags.PURELAND_PROGRESS_FLAG,0x46,1,,0x5ed
+79,LocationId.DoomWall, "doom wall",EventFlags.NORTHTOWN_RUINS_FLAG,0x2D,4,or 5,0x553
+80,LocationId.Vampire, "vampire",EventFlags.NORTHTOWN_RUINS_FLAG,0x2D,8?,or 9?,0x559
+81,LocationId.MechRider2, "mech rider 2",EventFlags.NORTHTOWN_CASTLE_PROGRESS_FLAG,0x35,6,or 7 or 8,0x52f
+82,LocationId.Watermelon, "watermelon (new item)",EventFlags.LOST_CONTINENT_WATERMELON_FLAG,0x45,2?,,0x4b4
+83,LocationId.Hexas, "hexas (new item)",EventFlags.LOST_CONTINENT_HEXAS_FLAG,0x44,6?,,0x4a2
+84,LocationId.WallFace, "wall face (new item)",EventFlags.PANDORA_RUINS_FLAG,0x12,10,,0x16e
+85,LocationId.MetalMantis, "metal mantis (new item)",EventFlags.RABITEMAN_GOLD_FLAG,0x58,1?,Repurposed flag,0x527
+86,LocationId.JemaAtTasnica, "jema at tasnica",EventFlags.TASNICA_FLAG,0x3C,4?,,0x2d1
+87,LocationId.TripleTonpole, "triple tonpole",EventFlags.ICE_PALACE_FLAG,0x26,3,(or ICE_CASTLE_SWITCHES_FLAG_2 = 5),0x66a
+88,LocationId.SwordPedestal, "sword pedestal",,0xDB,1,,0x532
+89,LocationId.SantaGift0, "santa gift 0",EventFlags.OPEN_WORLD_CHRISTMAS_PROGRESS,0x6F,1,Same locations are,0x37e
+90,LocationId.SantaGift1, "santa gift 1",EventFlags.OPEN_WORLD_CHRISTMAS_PROGRESS,0x6F,2,also used for,0x37e
+91,LocationId.SantaGift2, "santa gift 2",EventFlags.OPEN_WORLD_CHRISTMAS_PROGRESS,0x6F,3,reindeer goal mode,0x37e
+92,LocationId.SantaGift3, "santa gift 3",EventFlags.OPEN_WORLD_CHRISTMAS_PROGRESS,0x6F,4,"",0x37e
+93,LocationId.SantaGift4, "santa gift 4",EventFlags.OPEN_WORLD_CHRISTMAS_PROGRESS,0x6F,5,"",0x37e
+94,LocationId.SantaGift5, "santa gift 5",EventFlags.OPEN_WORLD_CHRISTMAS_PROGRESS,0x6F,6,"",0x37e
+95,LocationId.SantaGift6, "santa gift 6",EventFlags.OPEN_WORLD_CHRISTMAS_PROGRESS,0x6F,7,"",0x37e
+96,LocationId.SantaGift7, "santa gift 7",EventFlags.OPEN_WORLD_CHRISTMAS_PROGRESS,0x6F,8,"",0x37e
