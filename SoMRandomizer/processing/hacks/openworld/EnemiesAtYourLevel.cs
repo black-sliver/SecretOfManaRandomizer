@@ -56,6 +56,7 @@ namespace SoMRandomizer.processing.hacks.openworld
                 Logging.log("No enemy scaling; applying only exp/gold scale");
                 new ExperienceAdjust().add(origRom, outRom, seed, settings, context);
                 new GoldAdjust().add(origRom, outRom, seed, settings, context);
+                applySaveHack(outRom, context);
                 return true;
             }
 
@@ -1501,8 +1502,15 @@ namespace SoMRandomizer.processing.hacks.openworld
             outRom[context.workingOffset++] = 0xFA;
             // RTL
             outRom[context.workingOffset++] = 0x6B;
-            
 
+            applySaveHack(outRom, context);
+
+            return true;
+        }
+
+        private static void applySaveHack(byte[] outRom, RandoContext context)
+        {
+            // this replaces some flags by 8bit integers, see CustomRamOffsets
             /*
              * a few changes to the loading of some of the 7ECFxx flags from saveram to allow them to be > 0x0F in RAM 
              * and represent time passed, bosses kills, stuff like that
@@ -1606,8 +1614,6 @@ namespace SoMRandomizer.processing.hacks.openworld
             outRom[context.workingOffset++] = 0x0A;
             // RTL
             outRom[context.workingOffset++] = 0x6B;
-
-            return true;
         }
 
         private void makeDisplayCurrentLevelSub(byte[] outRom, int addrOfValue, RandoContext context, int messageLocation)
