@@ -223,16 +223,16 @@ namespace SoMRandomizer.processing.hacks.openworld
                         flag = 0;
                     }
                     
-                    var message = context.workingData.get(RewardMessageKeyPrefix + location.locationId);
+                    var message = context.workingData.get(RewardMessageKeyPrefix + (int)location.locationId);
 
                     byte[] eventData;
-                    if (flag == 0 && string.IsNullOrWhiteSpace(message))
+                    if (flag == 0 && string.IsNullOrEmpty(message))
                     {
                         eventData = new byte[] { };
                     }
                     else if (flag == 0)
                     {
-                        eventData = MakeTextOnlyEventData(message).ToArray();
+                        eventData = MakeBareMessage(message).ToArray();
                     }
                     else
                     {
@@ -258,7 +258,7 @@ namespace SoMRandomizer.processing.hacks.openworld
                         }
                         else
                         {
-                            eventData = eventData.Concat(MakeTextOnlyEventData(message)).ToArray();
+                            eventData = eventData.Concat(MakeBareMessage(message)).ToArray();
                         }
                     }
 
@@ -633,9 +633,14 @@ namespace SoMRandomizer.processing.hacks.openworld
             outRom[workingOffset++] = (byte)((addr >> 16) & 0xff);
         }
 
+        private static List<byte> MakeBareMessage(string text)
+        {
+            return VanillaEventUtil.getBytes(VanillaEventUtil.wordWrapText(text));
+        }
+
         private static IEnumerable<byte> MakeReceivedMessage(string itemName)
         {
-            var res = VanillaEventUtil.getBytes(VanillaEventUtil.wordWrapText("Received " + itemName));
+            var res = MakeBareMessage("Received " + itemName);
             res.Add(EventCommandEnum.SLEEP_FOR.Value); // wait for button press
             res.Add(0x07); // maybe
             res.Add(EventCommandEnum.CLOSE_DIALOGUE.Value);
