@@ -50,20 +50,20 @@ namespace SoMRandomizer.processing.hacks.common.procgen
             outRom[context.workingOffset++] = 0x00;
             // STA $STATISTICS_BASE_OFFSET
             outRom[context.workingOffset++] = 0x8F;
-            outRom[context.workingOffset++] = (byte)CustomRamOffsets.STATISTICS_BASE_OFFSET;
-            outRom[context.workingOffset++] = (byte)(CustomRamOffsets.STATISTICS_BASE_OFFSET >> 8);
-            outRom[context.workingOffset++] = (byte)(CustomRamOffsets.STATISTICS_BASE_OFFSET >> 16);
+            outRom[context.workingOffset++] = CustomRamOffsets.STATISTICS_BASE_OFFSET & 0xff;
+            outRom[context.workingOffset++] = (CustomRamOffsets.STATISTICS_BASE_OFFSET >> 8) & 0xff;
+            outRom[context.workingOffset++] = (CustomRamOffsets.STATISTICS_BASE_OFFSET >> 16) & 0xff;
             // REP 20
             outRom[context.workingOffset++] = 0xC2;
             outRom[context.workingOffset++] = 0x20;
             // LDX #STATISTICS_BASE_OFFSET
             outRom[context.workingOffset++] = 0xA2;
-            outRom[context.workingOffset++] = (byte)CustomRamOffsets.STATISTICS_BASE_OFFSET;
-            outRom[context.workingOffset++] = (byte)(CustomRamOffsets.STATISTICS_BASE_OFFSET >> 8);
+            outRom[context.workingOffset++] = CustomRamOffsets.STATISTICS_BASE_OFFSET & 0xff;
+            outRom[context.workingOffset++] = (CustomRamOffsets.STATISTICS_BASE_OFFSET >> 8) & 0xff;
             // LDY #STATISTICS_BASE_OFFSET+1
             outRom[context.workingOffset++] = 0xA0;
-            outRom[context.workingOffset++] = (byte)(CustomRamOffsets.STATISTICS_BASE_OFFSET + 1);
-            outRom[context.workingOffset++] = (byte)((CustomRamOffsets.STATISTICS_BASE_OFFSET + 1) >> 8);
+            outRom[context.workingOffset++] = (CustomRamOffsets.STATISTICS_BASE_OFFSET + 1) & 0xff;
+            outRom[context.workingOffset++] = ((CustomRamOffsets.STATISTICS_BASE_OFFSET + 1) >> 8) & 0xff;
             // LDA #NUM_STATISTICS_BYTES-2
             outRom[context.workingOffset++] = 0xA9;
             outRom[context.workingOffset++] = (byte)(NUM_STATISTICS_BYTES - 2);

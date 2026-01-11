@@ -12,7 +12,7 @@ namespace SoMRandomizer.processing.common
         // Ancient cave statistics
         // /////////////////////
         // block seems untouched; 0x55 forever; can probably use for whatever
-        public static int STATISTICS_BASE_OFFSET = 0x7E0400;
+        public const int STATISTICS_BASE_OFFSET = 0x7E0400;
 
         // 00
         public static int PLAYER_KILLS_OFFSET_16BIT = STATISTICS_BASE_OFFSET + 0;
