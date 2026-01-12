@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <uchar.h>
+// #include <uchar.h> // defined by api.h
 
 #include "../api.h"
 
