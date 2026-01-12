@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 // #include <uchar.h> // not available on macos
-typedef uint16_t char16_t;
+typedef uint_least16_t char16_t;
 
 
 typedef struct SoMR_ItemList SoMR_ItemList;
