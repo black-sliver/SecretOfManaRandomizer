@@ -500,7 +500,7 @@ namespace SoMRandomizer.processing.hacks.openworld
                 0xad, Lo(RamAddr.ReceiveItem), Hi(RamAddr.ReceiveItem), // LDA $7eff00 (item id)
                 // if ($7eff00 (item id) > last) return
                 0xc9, eventCount, 0x00, // CMP (Last + 1)
-                0x10, 0xf1, // BPL -15 to return above (branch/return if invalid)
+                0x10, 0xee, // BPL -18 to return above (branch/return if invalid)
                 // item id *= 3 (offset into table)
                 0x0a, // ASL A (* =2)
                 0x6d, Lo(RamAddr.ReceiveItem), Hi(RamAddr.ReceiveItem), // ADC $7eff00 (+= item id)
