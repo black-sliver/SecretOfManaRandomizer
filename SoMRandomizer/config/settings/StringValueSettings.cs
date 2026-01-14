@@ -14,7 +14,7 @@ namespace SoMRandomizer.config.settings
     public class StringValueSettings
     {
         // ensure decimal values go out with a period, not a comma
-        private static CultureInfo enUs = new CultureInfo("en-US");
+        private static readonly CultureInfo enUs = CultureInfo.InvariantCulture;
         private const string BOOLEAN_TRUE_VALUE = "yes";
         private const string BOOLEAN_FALSE_VALUE = "no";
         // acceptable values for "yes" when converting strings to booleans. case insensitive
