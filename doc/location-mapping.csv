@@ -42,7 +42,7 @@
 41,LocationId.MoogleVillageGloveOrbChest, "moogle village glove orb chest",,0x51,1,,0x670
 42,LocationId.IceCastleGloveOrbChest, "ice castle glove orb chest",,0x52,1,,0x671
 43,LocationId.PandoraSwordOrbChest, "pandora sword orb chest",,0x62,1,,0x673
-44,LocationId.NtRuinsSwordOrbChest, "northtown ruins sword orb chest",,0x62,1,,0x674
+44,LocationId.NtRuinsSwordOrbChest, "northtown ruins sword orb chest",,0x63,1,,0x674
 45,LocationId.MoogleVillageAxeOrbChest, "moogle village axe orb chest",,0x64,1,,0x676
 46,LocationId.NtCastleAxeOrbChest, "northtown castle axe orb chest",,0x65,1,,0x679
 47,LocationId.NtRuinsSpearOrbChest, "northtown ruins spear orb chest",,0x66,1,,0x67a
