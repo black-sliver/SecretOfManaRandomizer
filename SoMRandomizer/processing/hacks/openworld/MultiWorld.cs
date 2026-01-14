@@ -77,8 +77,8 @@ namespace SoMRandomizer.processing.hacks.openworld
         {
             ReceiveIndexLo = CustomRamOffsets.MULTIWORLD_RECEIVE_INDEX_LO, // 0x7ecf88
             ReceiveIndexHi = CustomRamOffsets.MULTIWORLD_RECEIVE_INDEX_HI, // 0x7ecf8a
-            ReceiveItem = CustomRamOffsets.MULTIWORLD_RECEIVE_ITEM, // 0x7e0441
-            ReceiveStart = CustomRamOffsets.MULTIWORLD_RECEIVE_START, // 0x7e0443
+            ReceiveItem = CustomRamOffsets.MULTIWORLD_RECEIVE_ITEM, // 0x7e0441..2
+            ReceiveStart = CustomRamOffsets.MULTIWORLD_RECEIVE_START, // 0x7e0443..4
             EventState = 0x7e00d0,
             EventPtr = 0x7e00d1,
         }
@@ -100,6 +100,7 @@ namespace SoMRandomizer.processing.hacks.openworld
             context.initialValues[CustomRamOffsets.MULTIWORLD_RECEIVE_ITEM] = 0;
             context.initialValues[CustomRamOffsets.MULTIWORLD_RECEIVE_ITEM + 1] = 0;
             context.initialValues[CustomRamOffsets.MULTIWORLD_RECEIVE_START] = 0;
+            context.initialValues[CustomRamOffsets.MULTIWORLD_RECEIVE_START + 1] = 0; // this byte stays 0 forever
         }
 
         protected override bool process(byte[] origRom, byte[] outRom, string seed, RandoSettings settings,

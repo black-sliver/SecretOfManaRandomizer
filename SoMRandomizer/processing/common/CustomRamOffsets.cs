@@ -91,11 +91,11 @@ namespace SoMRandomizer.processing.common
         // NOTE: saving the index extends the hack to save the 4 bytes above in EnemiesAtYourLevel
         public const int MULTIWORLD_RECEIVE_INDEX_LO = 0x7ecf88; // corrupts 89; event flags 0x88,89,8a,8b = 16bit
         public const int MULTIWORLD_RECEIVE_INDEX_HI = 0x7ecf8a; // corrupts 8b
-        // need 3 temp bytes that get cleared on reset
+        // need >=3 temp bytes that get cleared on reset
         // originally we wanted to use 7eff00..7eff02, but they appear to be used under some circumstances,
         // so we pick some from the region above and use context.initialValues[...] = 0
-        public const int MULTIWORLD_RECEIVE_ITEM = STATISTICS_BASE_OFFSET + 65;
-        public const int MULTIWORLD_RECEIVE_START = STATISTICS_BASE_OFFSET + 67;
-        // next: +68
+        public const int MULTIWORLD_RECEIVE_ITEM = STATISTICS_BASE_OFFSET + 65; // +66 is hi
+        public const int MULTIWORLD_RECEIVE_START = STATISTICS_BASE_OFFSET + 67; // +68 is always 0 when valid
+        // next: +69
     }
 }
