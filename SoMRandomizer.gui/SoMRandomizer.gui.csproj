@@ -1,7 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <ProjectGuid>{1F611BF5-038E-4F9D-AE99-75CB5B17C17D}</ProjectGuid>
+    <TargetName>SoMRandomizer</TargetName>
     <OutputType>WinExe</OutputType>
+    <UseAppHost>false</UseAppHost>
+    <PublishSingleFile>true</PublishSingleFile>
     <TargetFramework>net462</TargetFramework>
     <AssemblyTitle>SoMRandomizer</AssemblyTitle>
     <Company>Moppleton</Company>
@@ -146,7 +149,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SoMRandomizer\SoMRandomizer.csproj" />
+    <ProjectReference Include="..\SoMRandomizer\SoMRandomizer.csproj">
+      <Private>true</Private>
+    </ProjectReference>
   </ItemGroup> 
   <Target Name="EmbedCopyLocalDlls" AfterTargets="ResolveReferences">
     <Message Text="ReferenceCopyLocalPaths: @(ReferenceCopyLocalPaths)" Importance="High" />
