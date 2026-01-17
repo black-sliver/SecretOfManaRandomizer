@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <AssemblyName>SoMRandomizer.core</AssemblyName><!-- would clash with the GUI EXE otherwise -->
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
     <RootNamespace>SoMRandomizer</RootNamespace>
