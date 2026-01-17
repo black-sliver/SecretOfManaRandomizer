@@ -34,7 +34,7 @@ namespace SoMRandomizer.gui
     internal static class Program
     {
         [DllImport("kernel32.dll")]
-        static extern bool AttachConsole(int dwProcessId);
+        private static extern bool AttachConsole(int dwProcessId);
 
         private const int ATTACH_PARENT_PROCESS = -1;
 
