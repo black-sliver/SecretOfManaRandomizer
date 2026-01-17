@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
+        <TargetName>SoMRandomizer-cli</TargetName>
         <OutputType>Exe</OutputType>
         <TargetFramework>net10.0</TargetFramework>
         <!--<ImplicitUsings>enable</ImplicitUsings>-->
