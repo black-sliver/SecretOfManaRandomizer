@@ -7,7 +7,7 @@ on:
 
 jobs:
   build_gui:
-    name: 'Build GUI'
+    name: 'Build GUI App'
     runs-on: windows-latest
 
     steps:
@@ -24,7 +24,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: SecretOfManaRandomizer-Debug
-          path: SoMRandomizer.gui/bin/Debug/net462/SoMRandomizer.*
+          path: |
+            SoMRandomizer.gui/bin/Debug/net462/SoMRandomizer*.exe
+            SoMRandomizer.gui/bin/Debug/net462/SoMRandomizer*.pdb
           if-no-files-found: error
           compression-level: 9
           retention-days: 7
