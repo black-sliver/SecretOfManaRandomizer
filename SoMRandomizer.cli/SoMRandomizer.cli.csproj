@@ -9,9 +9,6 @@
         <LangVersion>7.3</LangVersion>
         <PackageId>SoMRandomizer.cli</PackageId>
     </PropertyGroup>
-    <PropertyGroup>
-      <WithPokedex>true</WithPokedex>
-    </PropertyGroup>
     <ItemGroup>
       <ProjectReference Include="..\SoMRandomizer\SoMRandomizer.csproj" />
     </ItemGroup>
