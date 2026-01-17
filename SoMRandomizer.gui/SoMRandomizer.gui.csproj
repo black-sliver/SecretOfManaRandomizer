@@ -152,7 +152,7 @@
     <ProjectReference Include="..\SoMRandomizer\SoMRandomizer.csproj">
       <Private>true</Private>
     </ProjectReference>
-  </ItemGroup> 
+  </ItemGroup>
   <Target Name="EmbedCopyLocalDlls" AfterTargets="ResolveReferences">
     <Message Text="ReferenceCopyLocalPaths: @(ReferenceCopyLocalPaths)" Importance="High" />
     <ItemGroup>

@@ -9,7 +9,7 @@ namespace SoMRandomizer.gui
 {
     internal static class ConsoleApp
     {
-        internal static void Run(string[] cmdLine)
+        internal static void Run(string[] cmdLine) // needs to be public so it doesn't get inlined
         {
             // process commandline args for open world.  require all of these:
             // srcRom=""
