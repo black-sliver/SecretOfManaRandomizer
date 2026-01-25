@@ -565,8 +565,8 @@ namespace SoMRandomizer.processing.openworld.events
             EventScript newEvent553 = new EventScript();
             context.replacementEvents[0x553] = newEvent553;
             newEvent553.Jsr(0x504); // orb
-            newEvent553.IncrFlag(EventFlags.NORTHTOWN_RUINS_FLAG); // double increment this flag so we don't have to talk to dyluck after
-            newEvent553.IncrFlag(EventFlags.NORTHTOWN_RUINS_FLAG);
+            // double increment this flag so we don't have to talk to dyluck after
+            newEvent553.SetFlag(EventFlags.NORTHTOWN_RUINS_FLAG, 5);
             injectReplacementPattern(newEvent553, 0); // wall prize
             newEvent553.Jump(0x647); // nfi
             newEvent553.End();
