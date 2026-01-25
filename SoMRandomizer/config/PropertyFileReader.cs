@@ -4,6 +4,7 @@ using System.Text;
 using System.Reflection;
 using System.IO;
 using SoMRandomizer.logging;
+using SoMRandomizer.util;
 
 namespace SoMRandomizer.config
 {
@@ -45,25 +46,23 @@ namespace SoMRandomizer.config
 
         public Dictionary<string, string> readPropertyResourceFile(string resourceName)
         {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string fullResourcePath = $"{DataUtil.GetAssemblyResourceNamespace(assembly)}.{resourceName}";
             try
             {
-                Assembly assemb = Assembly.GetExecutingAssembly();
-                string[] names = assemb.GetManifestResourceNames();
-                try
+                using (Stream stream = assembly.GetManifestResourceStream(fullResourcePath))
                 {
-                    Stream stream = assemb.GetManifestResourceStream($"{assemb.GetName().Name}.Resources." + resourceName);
-                    StreamReader reader = new StreamReader(stream, Encoding.Default);
-                    return readPropertyStream(reader);
-                }
-                catch (Exception e)
-                {
-                    return new Dictionary<string, string>();
+                    if (stream != null)
+                    {
+                        return readPropertyStream(new StreamReader(stream, Encoding.Default));
+                    }
+                    throw new Exception($"Resource {fullResourcePath} not found.");
                 }
             }
             catch (Exception e)
             {
                 Logging.log(e.ToString());
-                return new Dictionary<string,string>();
+                return new Dictionary<string, string>();
             }
         }
 

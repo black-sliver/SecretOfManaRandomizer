@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using SoMRandomizer.logging;
 
 namespace SoMRandomizer.util
 {
@@ -40,15 +41,35 @@ namespace SoMRandomizer.util
             return value;
         }
 
+        public static string GetAssemblyResourceNamespace(Assembly assembly)
+        {
+            // it doesn't appear that there is a good way to get the RootNamespace, so we just hard-code this
+            if (assembly.GetName().Name == "SoMRandomizer.core")
+            {
+                return "SoMRandomizer.Resources";
+            }
+            return assembly.GetName().Name + ".Resources";
+        }
+
         public static byte[] readResource(string resourcePath)
         {
-            // resource path should be SoMRandomizer.gui.Resources.(...)
-            Assembly assemb = Assembly.GetExecutingAssembly();
-            using (Stream stream = assemb.GetManifestResourceStream($"{assemb.GetName().Name}.Resources.{resourcePath}"))
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string fullResourcePath = $"{GetAssemblyResourceNamespace(assembly)}.{resourcePath}";
+            using (Stream stream = assembly.GetManifestResourceStream(fullResourcePath))
             {
-                byte[] resourceData = new byte[stream.Length];
-                stream.Read(resourceData, 0, (int)stream.Length);
-                return resourceData;
+                if (stream != null)
+                {
+                    byte[] resourceData = new byte[stream.Length];
+                    int pos = 0;
+                    while (pos < stream.Length)
+                    {
+                        pos += stream.Read(resourceData, pos, (int)stream.Length - pos);
+                    }
+                    return resourceData;
+                }
+                // the caller may try-catch ignore, so always log as warning
+                Logging.log($"Warning: resource {fullResourcePath} not found.");
+                throw new Exception($"Resource {fullResourcePath} not found.");
             }
         }
 

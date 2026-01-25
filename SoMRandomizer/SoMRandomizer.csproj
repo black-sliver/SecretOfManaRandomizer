@@ -2,9 +2,10 @@
 
   <PropertyGroup>
     <AssemblyName>SoMRandomizer.core</AssemblyName><!-- would clash with the GUI EXE otherwise -->
+    <RootNamespace>SoMRandomizer</RootNamespace>
+    <!-- beware: changing AssemblyName without changing RootNamespace means resource loading can't use Assembly.Name -->
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
-    <RootNamespace>SoMRandomizer</RootNamespace>
     <LangVersion>7.2</LangVersion>
     <Clean>false</Clean>
   </PropertyGroup>

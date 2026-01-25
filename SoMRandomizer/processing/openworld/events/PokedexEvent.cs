@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using SoMRandomizer.util;
 using U8Xml;
 
 namespace SoMRandomizer.processing.openworld.events
@@ -33,8 +34,9 @@ namespace SoMRandomizer.processing.openworld.events
                 string pokemonName = "";
                 string pokemonDescription = "";
                 int generation = 0;
-                Assembly assemb = Assembly.GetExecutingAssembly();
-                stream = assemb.GetManifestResourceStream($"{assemb.GetName().Name}.Resources.pokedata3.xml");
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                string fullResourcePath = $"{DataUtil.GetAssemblyResourceNamespace(assembly)}.pokedata3.xml";
+                stream = assembly.GetManifestResourceStream(fullResourcePath);
                 if (stream == null)
                 {
                     // TODO: allow getting pokedata from external file
