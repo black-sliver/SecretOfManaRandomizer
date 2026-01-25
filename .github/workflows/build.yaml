@@ -20,13 +20,26 @@ jobs:
         run: |
           msbuild SoMRandomizer.gui.sln
           ls SoMRandomizer.gui\bin\Debug\net462
-      - name: Store
+      - name: Store Debug
         uses: actions/upload-artifact@v4
         with:
           name: SecretOfManaRandomizer-Debug
           path: |
             SoMRandomizer.gui/bin/Debug/net462/SoMRandomizer*.exe
             SoMRandomizer.gui/bin/Debug/net462/SoMRandomizer*.pdb
+          if-no-files-found: error
+          compression-level: 9
+          retention-days: 7
+      - name: Build Release
+        run: |
+          msbuild SoMRandomizer.gui.sln /p:Configuration=Release
+          ls SoMRandomizer.gui\bin\Release\net462
+      - name: Store Release
+        uses: actions/upload-artifact@v4
+        with:
+          name: SecretOfManaRandomizer-Release
+          path: |
+            SoMRandomizer.gui/bin/Release/net462/SoMRandomizer*.exe
           if-no-files-found: error
           compression-level: 9
           retention-days: 7
