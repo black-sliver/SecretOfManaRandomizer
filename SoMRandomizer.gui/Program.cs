@@ -64,7 +64,7 @@ namespace SoMRandomizer.gui
                 {
                     // ignore
                 }
-                ConsoleApp.Run(cmdLine);
+                ConsoleApp.Run(cmdLine, 1);
             }
         }
 

@@ -20,7 +20,7 @@ namespace SoMRandomizer.cli
             // note that this currently only supports open world mode, though it wouldn't be too hard to make it run for any mode.
             try
             {
-                Dictionary<string, string> cmdArgsProcessed = CmdArgParser.processCmdArgs(cmdLine);
+                Dictionary<string, string> cmdArgsProcessed = CmdArgParser.ProcessCmdArgs(cmdLine, 0);
                 if (!cmdArgsProcessed.ContainsKey("srcRom"))
                 {
                     Console.WriteLine("missing srcRom=(path)");

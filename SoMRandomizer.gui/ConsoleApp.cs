@@ -9,7 +9,7 @@ namespace SoMRandomizer.gui
 {
     internal static class ConsoleApp
     {
-        internal static void Run(string[] cmdLine) // needs to be public so it doesn't get inlined
+        internal static void Run(string[] cmdLine, int argOffset)
         {
             // process commandline args for open world.  require all of these:
             // srcRom=""
@@ -20,7 +20,7 @@ namespace SoMRandomizer.gui
             // note that this currently only supports open world mode, though it wouldn't be too hard to make it run for any mode.
             try
             {
-                Dictionary<string, string> cmdArgsProcessed = CmdArgParser.processCmdArgs(cmdLine);
+                Dictionary<string, string> cmdArgsProcessed = CmdArgParser.ProcessCmdArgs(cmdLine, argOffset);
                 if (!cmdArgsProcessed.ContainsKey("srcRom"))
                 {
                     Console.WriteLine("missing srcRom=(path)");

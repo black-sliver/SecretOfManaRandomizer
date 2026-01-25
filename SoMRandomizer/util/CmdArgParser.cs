@@ -8,13 +8,13 @@ namespace SoMRandomizer.util
     /// </summary>
     /// 
     /// <remarks>Author: Moppleton</remarks>
-    public class CmdArgParser
+    public static class CmdArgParser
     {
-        public static Dictionary<string, string> processCmdArgs(string[] args)
+        public static Dictionary<string, string> ProcessCmdArgs(string[] args, int offset)
         {
+            // NOTE: if args is coming from Environment, [0] is EXE, if it's coming from Main(), [0] is the first arg
             Dictionary<string, string> processed = new Dictionary<string, string>();
-            // arg [0] is the path to the binary
-            for (int i=1; i < args.Length; i++)
+            for (int i=offset; i < args.Length; i++)
             {
                 Console.WriteLine(args[i]);
                 int equalsIndex = args[i].IndexOf('=');
