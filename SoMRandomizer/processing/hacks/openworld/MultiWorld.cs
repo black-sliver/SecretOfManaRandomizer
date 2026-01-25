@@ -370,10 +370,6 @@ namespace SoMRandomizer.processing.hacks.openworld
             var boySpells = roleSpellFlags[context.workingData.get(OpenWorldClassSelection.BOY_CLASS)];
             var girlSpells = roleSpellFlags[context.workingData.get(OpenWorldClassSelection.GIRL_CLASS)];
             var spriteSpells = roleSpellFlags[context.workingData.get(OpenWorldClassSelection.SPRITE_CLASS)];
-            const byte manaMagicMask = 0x24;
-            var boyDryadSpells = (byte)(boySpells & ~manaMagicMask);
-            var girlDryadSpells = (byte)(girlSpells & ~manaMagicMask);
-            var spriteDryadSpells = (byte)(spriteSpells & ~manaMagicMask);
             var girlSpellsExist = context.workingData.getBool(OpenWorldClassSelection.GIRL_MAGIC_EXISTS);
             var spriteSpellsExist = context.workingData.getBool(OpenWorldClassSelection.SPRITE_MAGIC_EXISTS);
             var giftMode = settings.get(OpenWorldGoalProcessor.GOAL_SHORT_NAME)
@@ -398,13 +394,6 @@ namespace SoMRandomizer.processing.hacks.openworld
                     boySpells, girlSpells, spriteSpells));
                 eventAddresses[ItemId.DryadSpells] = AppendBlock(outRom, ref workingOffset, MakeSpellEventData(
                     EventFlags.ELEMENT_DRYAD_FLAG, 0xcd, "Dryad",
-                    boyDryadSpells, girlDryadSpells, spriteDryadSpells));
-            }
-
-            if (girlSpellsExist || giftMode)
-            {
-                eventAddresses[ItemId.LuminaSpells] = AppendBlock(outRom, ref workingOffset, MakeSpellEventData(
-                    EventFlags.ELEMENT_LUMINA_FLAG, 0xcf, "Lumina",
                     boySpells, girlSpells, spriteSpells));
             }
 
@@ -412,6 +401,13 @@ namespace SoMRandomizer.processing.hacks.openworld
             {
                 eventAddresses[ItemId.ShadeSpells] = AppendBlock(outRom, ref workingOffset, MakeSpellEventData(
                     EventFlags.ELEMENT_SHADE_FLAG, 0xce, "Shade",
+                    boySpells, girlSpells, spriteSpells));
+            }
+
+            if (girlSpellsExist || giftMode)
+            {
+                eventAddresses[ItemId.LuminaSpells] = AppendBlock(outRom, ref workingOffset, MakeSpellEventData(
+                    EventFlags.ELEMENT_LUMINA_FLAG, 0xcf, "Lumina",
                     boySpells, girlSpells, spriteSpells));
             }
 
@@ -805,7 +801,52 @@ namespace SoMRandomizer.processing.hacks.openworld
         private static IEnumerable<byte> MakeSpellEventData(byte flag, byte attr, string elementName,
             byte boySpells, byte girlSpells, byte spriteSpells)
         {
+            // mask off mana magic, which is unlocked later
+            // mask off shade spells and lumina spells to skip setting the attr
+            const byte dryadAttr = 0xcd;
+            const byte shadeAttr = 0xce;
+            const byte luminaAttr = 0xcf;
+            var spellMask = new Dictionary<byte, byte>
+            {
+                {dryadAttr, 0x1b}, // no mana magic
+                {shadeAttr, 0x07}, // sprite-only
+                {luminaAttr, 0x38}, // girl-only
+            };
+            if (spellMask.TryGetValue(attr, out var mask))
+            {
+                boySpells &= mask;
+                girlSpells &= mask;
+                spriteSpells &= mask;
+            }
+
             var name = elementName + " magic";
+            var boyUnlock = (boySpells == 0)
+                ? new byte[] { }
+                : new byte[]
+                {
+                    EventCommandEnum.SET_CHARACTER_ATTRIBUTE.Value,
+                    0x01, // boy
+                    attr,
+                    boySpells,
+                };
+            var girlUnlock = (girlSpells == 0)
+                ? new byte[] { }
+                : new byte[]
+                {
+                    EventCommandEnum.SET_CHARACTER_ATTRIBUTE.Value,
+                    0x02, // girl
+                    attr,
+                    girlSpells,
+                };
+            var spriteUnlock = (spriteSpells == 0)
+                ? new byte[] { }
+                : new byte[]
+                {
+                    EventCommandEnum.SET_CHARACTER_ATTRIBUTE.Value,
+                    0x03, // sprite
+                    attr,
+                    spriteSpells,
+                };
             return new byte[]
             {
                 EventCommandEnum.OPEN_DIALOGUE.Value,
@@ -814,23 +855,12 @@ namespace SoMRandomizer.processing.hacks.openworld
                 0x1F, // 1..15
                 (byte)(EventCommandEnum.JUMP_BASE.Value + 0x03),
                 0x96, // event 396 is our "already got it" event
-                // unlock spells
-                EventCommandEnum.SET_CHARACTER_ATTRIBUTE.Value,
-                0x01, // boy
-                attr,
-                boySpells,
-                EventCommandEnum.SET_CHARACTER_ATTRIBUTE.Value,
-                0x02, // girl
-                attr,
-                girlSpells,
-                EventCommandEnum.SET_CHARACTER_ATTRIBUTE.Value,
-                0x03, // sprite
-                attr,
-                spriteSpells,
+            }.Concat(boyUnlock).Concat(girlUnlock).Concat(spriteUnlock).Concat(new byte[]
+            {
                 EventCommandEnum.SET_FLAG.Value,
                 flag,
                 0x01, // unlocked
-            }.Concat(MakeReceivedMessage(name));
+            }).Concat(MakeReceivedMessage(name));
         }
 
         private static IEnumerable<byte> MakeGpEventData(int amount)
