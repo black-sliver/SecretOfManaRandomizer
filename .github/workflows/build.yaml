@@ -60,3 +60,27 @@ jobs:
           if-no-files-found: error
           compression-level: 9
           retention-days: 7
+
+  test_api:
+    # NOTE: we don't upload the API build in CI, but we still want to test it
+    name: 'Build API and run tests'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up dotnet
+        uses: actions/setup-dotnet@v5.1.0
+        with:
+          dotnet-version: '10'
+      - name: Install Dependencies
+        run: |
+          dotnet restore SoMRandomizer.api.sln
+      - name: Build
+        run: |
+          # build in two steps and the second with just 1 core, because we run into this otherwise:
+          # https://github.com/dotnet/sdk/issues/2902
+          dotnet build SoMRandomizer.api/ --no-restore
+          dotnet build SoMRandomizer.api.Tests/ --no-restore -maxcpucount:1
+      - name: Test
+        run: |
+          dotnet test SoMRandomizer.api.sln --no-restore --no-build

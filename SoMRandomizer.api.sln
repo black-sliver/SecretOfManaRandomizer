@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer", "SoMRandomi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer.api", "SoMRandomizer.api\SoMRandomizer.api.csproj", "{FEE37E3D-49BA-4A4B-BC05-140E91C2927B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoMRandomizer.api.Tests", "SoMRandomizer.api.Tests\SoMRandomizer.api.Tests.csproj", "{DF37E0D5-3BB4-4C92-8927-31B4014DDE59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{FEE37E3D-49BA-4A4B-BC05-140E91C2927B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEE37E3D-49BA-4A4B-BC05-140E91C2927B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEE37E3D-49BA-4A4B-BC05-140E91C2927B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF37E0D5-3BB4-4C92-8927-31B4014DDE59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF37E0D5-3BB4-4C92-8927-31B4014DDE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF37E0D5-3BB4-4C92-8927-31B4014DDE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF37E0D5-3BB4-4C92-8927-31B4014DDE59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
