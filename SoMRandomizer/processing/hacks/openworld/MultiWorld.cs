@@ -79,6 +79,7 @@ namespace SoMRandomizer.processing.hacks.openworld
             ReceiveIndexHi = CustomRamOffsets.MULTIWORLD_RECEIVE_INDEX_HI, // 0x7ecf8a
             ReceiveItem = CustomRamOffsets.MULTIWORLD_RECEIVE_ITEM, // 0x7e0441..2
             ReceiveStart = CustomRamOffsets.MULTIWORLD_RECEIVE_START, // 0x7e0443..4
+            MapState = 0x7e005c, // 0x80 bit set while in boss encounter
             EventState = 0x7e00d0,
             EventPtr = 0x7e00d1,
         }
@@ -480,6 +481,11 @@ namespace SoMRandomizer.processing.hacks.openworld
                 // if ($7e00d0 (event busy) != 0) return
                 0xaf, Lo(RamAddr.EventState), Hi(RamAddr.EventState), Ex(RamAddr.EventState), // LDA (long) $7e00d0 (busy)
                 0xf0, 0x06, // BEQ (if 0: jump over return, otherwise: early return)
+                0xc2, 0x30, // REP #30 (A, X, Y = 16bit)
+                0x5c, 0xaf, 0xc0, 0x00, // JML (long) $00c0af (return)
+                // if ($7e005c < 0) return (in boss encounter)
+                0xaf, Lo(RamAddr.MapState), Hi(RamAddr.MapState), Ex(RamAddr.MapState), // LDA (long) $7e005c (map state)
+                0x10, 0x06, // BPL (if >=0: jump over return, otherwise: early return)
                 0xc2, 0x30, // REP #30 (A, X, Y = 16bit)
                 0x5c, 0xaf, 0xc0, 0x00, // JML (long) $00c0af (return)
                 // if ($7eff02 (item queued) == 0) return
