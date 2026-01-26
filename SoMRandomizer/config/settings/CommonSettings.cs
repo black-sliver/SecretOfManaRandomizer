@@ -12,6 +12,7 @@ namespace SoMRandomizer.config.settings
         public const string PROPERTYNAME_ALL_ENTERED_OPTIONS = "allOptions";
         public const string PROPERTYNAME_VERSION = "version";
         public const string PROPERTYNAME_BUILD_DATE = "buildDate";
+        public const string PROPERTYNAME_LOG_DIR = "loggingDirectory";
         public const string PROPERTYNAME_DEBUG_LOG = "debugLoggingEnabled";
         public const string PROPERTYNAME_MODE = "mode";
         public const string PROPERTYNAME_CURRENT_PROGRESS = "currentGenerateProgress";

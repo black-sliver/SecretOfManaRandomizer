@@ -394,7 +394,7 @@ namespace SoMRandomizer.processing.common
             char[] badChars = new char[] { '\\', '/', ':', '<', '>', '\'', '\"', '*', '?', '|' };
             foreach (char c in badChars)
             {
-                filenameSeed = filenameSeed.Replace(c, '_'); // TODO: make directory configurable
+                filenameSeed = filenameSeed.Replace(c, '_');
             }
             Logging.ClearLoggers();
             if (settings.getBool(CommonSettings.PROPERTYNAME_TEST_ONLY))
@@ -405,10 +405,15 @@ namespace SoMRandomizer.processing.common
             }
             else
             {
-                context.fileLogger = new FileLogger("./log_" + filenameSeed + ".txt");
+                string logDir = settings.get(CommonSettings.PROPERTYNAME_LOG_DIR);
+                if (string.IsNullOrEmpty(logDir))
+                {
+                    logDir = ".";
+                }
+                context.fileLogger = new FileLogger($"{logDir}/log_{filenameSeed}.txt");
                 if (settings.getBool(CommonSettings.PROPERTYNAME_SPOILER_LOG) && !settings.getBool(CommonSettings.PROPERTYNAME_RACE_MODE))
                 {
-                    context.fileLoggerSpoiler = new FileLogger("./log_" + filenameSeed + "_SPOILER.txt");
+                    context.fileLoggerSpoiler = new FileLogger($"{logDir}/log_{filenameSeed}_SPOILER.txt");
                 }
                 else
                 {
@@ -416,7 +421,7 @@ namespace SoMRandomizer.processing.common
                 }
                 if (settings.getBool(CommonSettings.PROPERTYNAME_DEBUG_LOG))
                 {
-                    context.fileLoggerDebug = new FileLogger("./log_" + filenameSeed + "_DEBUG.txt");
+                    context.fileLoggerDebug = new FileLogger($"{logDir}/log_{filenameSeed}_DEBUG.txt");
                 }
                 else
                 {

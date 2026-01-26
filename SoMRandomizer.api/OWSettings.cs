@@ -6,6 +6,16 @@ namespace SoMRandomizer.api;
 // ReSharper disable once InconsistentNaming
 public static class OWSettings
 {
+    /// <summary>
+    /// Settings that have to be applied to CommonSettings
+    /// </summary>
+    private static readonly HashSet<string> CommonKeys =
+    [
+        CommonSettings.PROPERTYNAME_LOG_DIR,
+        CommonSettings.PROPERTYNAME_DEBUG_LOG,
+        CommonSettings.PROPERTYNAME_SPOILER_LOG
+    ];
+
     public static IntPtr Ref(OpenWorldSettings settings)
     {
         // NOTE: we could also pin and have a dict item -> handle
@@ -25,7 +35,14 @@ public static class OWSettings
         var value = Str.FromUni(valuePtr);
         var handle = GCHandle.FromIntPtr(settingsPtr);
         var o = (StringValueSettings)handle.Target;
-        o?.set(key, value);
+        if (CommonKeys.Contains(key) && o is RandoSettings randoSettings)
+        {
+            randoSettings.CommonSettings.set(key, value);
+        }
+        else
+        {
+            o?.set(key, value);
+        }
     }
 
     [UnmanagedCallersOnly(EntryPoint = "SoMR_OWSettings_Dump")]
