@@ -169,7 +169,6 @@ public static class OpenWorld
         var commonSettings = new CommonSettings();
         commonSettings.set(CommonSettings.PROPERTYNAME_MODE, OpenWorldSettings.MODE_KEY);
         commonSettings.set(CommonSettings.PROPERTYNAME_VERSION, RomGenerator.VERSION_NUMBER);
-        commonSettings.setBool(CommonSettings.PROPERTYNAME_DEBUG_LOG, true);
         return OWSettings.Ref(new OpenWorldSettings(commonSettings));
     }
 
