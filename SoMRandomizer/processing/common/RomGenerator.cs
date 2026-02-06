@@ -10,6 +10,7 @@ using SoMRandomizer.util.rng;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -274,7 +275,8 @@ namespace SoMRandomizer.processing.common
                     .AddDays(Int32.Parse(days))
                     // revision is half the number of seconds into the day
                     .AddSeconds(Int32.Parse(minutes) * 2);
-                commonSettings.set(CommonSettings.PROPERTYNAME_BUILD_DATE, "" + date);
+                commonSettings.set(CommonSettings.PROPERTYNAME_BUILD_DATE,
+                    date.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
             }
             catch (Exception)
             {
@@ -478,8 +480,9 @@ namespace SoMRandomizer.processing.common
 
                 // log all the incoming settings, and seed
                 Logging.log("-------------------------------------------------");
-                Logging.log("Begin ROM generation at " + DateTime.Now + " with version " +
-                            settings.get(CommonSettings.PROPERTYNAME_VERSION));
+                Logging.log("Begin ROM generation at " +
+                            DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture) +
+                            " with version " + settings.get(CommonSettings.PROPERTYNAME_VERSION));
                 Logging.log("Seed = " + seed);
                 Logging.log("Options = " + settings);
                 Logging.log("-------------------------------------------------");

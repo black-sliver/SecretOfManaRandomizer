@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Windows.Forms;
 using SoMRandomizer.config.settings;
 using SoMRandomizer.gui.config.ui;
@@ -122,7 +123,7 @@ namespace SoMRandomizer.gui.forms
                 DateTime date = new DateTime(2000, 1, 1)     // baseline is 01/01/2000
                 .AddDays(Int32.Parse(days))             // build is number of days after baseline
                 .AddSeconds(Int32.Parse(minutes) * 2);    // revision is half the number of seconds into the day
-                buildDateIndicator += "" + date;
+                buildDateIndicator += date.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
             }
             catch (Exception e)
             {
