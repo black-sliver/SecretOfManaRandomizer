@@ -333,7 +333,7 @@ namespace SoMRandomizer.processing.hacks.openworld
                     (context.workingData.getBool(OpenWorldCharacterSelection.SPRITE_EXISTS) &&
                      i == context.workingData.getInt(StartingWeaponRandomizer.SPRITE_START_WEAPON_INDEX)))
                 {
-                    Logging.log("Multiworld: Skipping starter weapon " + i, "debug");
+                    Logging.log($"Multiworld: Skipping starter weapon {i} ({IdMap.Weapons[i]})", "debug");
                     continue;
                 }
                 eventAddresses[IdMap.Weapons[i]] = AppendBlock(outRom, ref workingOffset, MakeWeaponEventData(i));
@@ -418,14 +418,14 @@ namespace SoMRandomizer.processing.hacks.openworld
                 var parts = prize.prizeName.Substring(3).Split(':');
                 if (parts.Length < 2 || !int.TryParse(parts[0], out var i) || !int.TryParse(parts[1], out var amount))
                 {
-                    Logging.log("Multiworld: malformed GP prize: " + prize.prizeName);
+                    Logging.log($"Multiworld: malformed GP prize: {prize.prizeName}");
                     continue;
                 }
 
                 var itemId = (ItemId)((int)ItemId.Gp0 + i);
                 if (itemId < ItemId.Gp0 || itemId > ItemId.Gp16)
                 {
-                    Logging.log("Multiworld: invalid GP itemId for " + prize.prizeName);
+                    Logging.log($"Multiworld: invalid GP itemId for {prize.prizeName}");
                     continue;
                 }
 
@@ -453,7 +453,7 @@ namespace SoMRandomizer.processing.hacks.openworld
             // NOTE: table and code needs to be in the same bank if we switch to short addressing in the future
             CodeGenerationUtils.ensureSpaceInBank(ref workingOffset, 3 * eventCount + lenOfScript);
             var itemTableStart = workingOffset;
-            Logging.log("Multiworld: writing item event table at 0x" + itemTableStart.ToString("X6"));
+            Logging.log($"Multiworld: writing item event table at 0x{itemTableStart:X6}");
             for (ItemId i = 0; i <= ItemId.Last; i++)
             {
                 if (!eventAddresses.TryGetValue(i, out var romAddr))
@@ -530,13 +530,13 @@ namespace SoMRandomizer.processing.hacks.openworld
 
             if (lenOfScript != nmiHook.Length)
             {
-                var msg = "WARNING: Wrong precalculated size: Expected " + nmiHook.Length + ", got " + lenOfScript;
+                var msg = $"WARNING: Wrong precalculated size: Expected {nmiHook.Length}, got {lenOfScript}";
                 Logging.log(msg);
                 Debug.Assert(false, msg);
             }
 
             var nmiHookAddr = workingOffset;
-            Logging.log("Multiworld: writing nmi hook at 0x" + nmiHookAddr.ToString("X6"));
+            Logging.log($"Multiworld: writing nmi hook at 0x{nmiHookAddr:X6}");
             AppendBlock(outRom, ref workingOffset, nmiHook);
 
             if (itemTableStart >> 16 != (workingOffset - 1) >> 16)
@@ -643,7 +643,7 @@ namespace SoMRandomizer.processing.hacks.openworld
 
         private static IEnumerable<byte> MakeReceivedMessage(string itemName)
         {
-            var res = MakeBareMessage("Received " + itemName);
+            var res = MakeBareMessage($"Received {itemName}");
             res.Add(EventCommandEnum.SLEEP_FOR.Value); // wait for button press
             res.Add(0x07); // maybe
             res.Add(EventCommandEnum.CLOSE_DIALOGUE.Value);
@@ -664,7 +664,7 @@ namespace SoMRandomizer.processing.hacks.openworld
             var flag1 = (byte)(0xc8 + weaponId);
             var flag2 = (byte)(0xc0 + weaponId);
             var inventory = (byte)(0x80 + weaponId * 9);
-            var name = "the " + SomVanillaValues.weaponByteToName(weaponId);
+            var name = $"the {SomVanillaValues.weaponByteToName(weaponId)}";
             return new byte[]
             {
                 EventCommandEnum.OPEN_DIALOGUE.Value,
@@ -690,7 +690,7 @@ namespace SoMRandomizer.processing.hacks.openworld
             var flag1 = (byte)(0xb8 + weaponId);
             var flag2 = (byte)(0xc0 + weaponId);
             var weaponName = SomVanillaValues.weaponByteToName(weaponId);
-            var name = (weaponName[0] == 'A') ? ("an " + weaponName + " orb") : ("a " + weaponName + " orb");
+            var name = (weaponName[0] == 'A') ? ($"an {weaponName} orb") : ($"a {weaponName} orb");
             return new byte[]
             {
                 EventCommandEnum.OPEN_DIALOGUE.Value,
@@ -716,7 +716,7 @@ namespace SoMRandomizer.processing.hacks.openworld
             // var weaponFlag2 = (byte)(0xc0 + weaponId); // FIXME: read below
             var charType = IdMap.ItemNames[IdMap.Characters[charId]];
             var indicator = "(" + charType.ToLowerInvariant() + ")";
-            var name = "the " + charType + ", " + indicator;
+            var name = $"the {charType}, {indicator}";
             return new byte[]
             {
                 EventCommandEnum.OPEN_DIALOGUE.Value,
@@ -786,7 +786,7 @@ namespace SoMRandomizer.processing.hacks.openworld
         private static IEnumerable<byte> MakeSeedEventData(byte elementId)
         {
             var flag = (byte)(0x90 + elementId);
-            var name = "the " + IdMap.ItemNames[IdMap.Seeds[elementId]];
+            var name = $"the {IdMap.ItemNames[IdMap.Seeds[elementId]]}";
             return new byte[]
             {
                 EventCommandEnum.OPEN_DIALOGUE.Value,
@@ -825,7 +825,7 @@ namespace SoMRandomizer.processing.hacks.openworld
                 spriteSpells &= mask;
             }
 
-            var name = elementName + " magic";
+            var name = $"{elementName} magic";
             var boyUnlock = (boySpells == 0)
                 ? new byte[] { }
                 : new byte[]
@@ -871,7 +871,7 @@ namespace SoMRandomizer.processing.hacks.openworld
 
         private static IEnumerable<byte> MakeGpEventData(int amount)
         {
-            var name = amount + " gold";
+            var name = $"{amount} gold";
             return new byte[]
             {
                 EventCommandEnum.OPEN_DIALOGUE.Value,
