@@ -344,19 +344,19 @@ namespace SoMRandomizer.processing.hacks.openworld
                 eventAddresses[IdMap.Seeds[i]] = AppendBlock(outRom, ref workingOffset, MakeSeedEventData(i));
             }
 
-            if (context.workingData.getBool(OpenWorldCharacterSelection.BOY_EXISTS))
+            if (context.workingData.getBool(OpenWorldCharacterSelection.BOY_IN_LOGIC))
             {
                 var weaponId = (byte)context.workingData.getInt(StartingWeaponRandomizer.BOY_START_WEAPON_INDEX);
                 eventAddresses[ItemId.Boy] = AppendBlock(outRom, ref workingOffset, MakeCharEventData(0, weaponId));
             }
 
-            if (context.workingData.getBool(OpenWorldCharacterSelection.GIRL_EXISTS))
+            if (context.workingData.getBool(OpenWorldCharacterSelection.GIRL_IN_LOGIC))
             {
                 var weaponId = (byte)context.workingData.getInt(StartingWeaponRandomizer.GIRL_START_WEAPON_INDEX);
                 eventAddresses[ItemId.Girl] = AppendBlock(outRom, ref workingOffset, MakeCharEventData(1, weaponId));
             }
 
-            if (context.workingData.getBool(OpenWorldCharacterSelection.SPRITE_EXISTS))
+            if (context.workingData.getBool(OpenWorldCharacterSelection.SPRITE_IN_LOGIC))
             {
                 var weaponId = (byte)context.workingData.getInt(StartingWeaponRandomizer.SPRITE_START_WEAPON_INDEX);
                 eventAddresses[ItemId.Sprite] = AppendBlock(outRom, ref workingOffset, MakeCharEventData(2, weaponId));
