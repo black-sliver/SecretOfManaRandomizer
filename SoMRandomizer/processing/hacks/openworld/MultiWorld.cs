@@ -449,7 +449,7 @@ namespace SoMRandomizer.processing.hacks.openworld
 
             // write table to rom
             const int eventCount = (int)ItemId.Last + 1;
-            const int lenOfScript = 90;
+            const int lenOfScript = 102;
             // NOTE: table and code needs to be in the same bank if we switch to short addressing in the future
             CodeGenerationUtils.ensureSpaceInBank(ref workingOffset, 3 * eventCount + lenOfScript);
             var itemTableStart = workingOffset;
